@@ -1289,8 +1289,9 @@ function quizFinaleMixed(panel, land, onFinishStars) {
     if (qi >= TOTAL) return finish();
     bar.querySelector('.quiz-progress-fill').style.width = `${(qi / TOTAL) * 100}%`;
     feedback.textContent = ''; feedback.className = 'feedback-banner';
-    qBox.textContent = '';
-    renderQuestion(genMixedQuestion());
+    const q = genMixedQuestion();
+    qBox.textContent = q.prompt;
+    renderQuestion(q);
   }
 
   function finish() {
