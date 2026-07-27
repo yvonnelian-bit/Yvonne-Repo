@@ -444,7 +444,7 @@ button {
   font-size: 16px;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 0 14px 4px rgba(255, 220, 100, .6);
-  transition: left 2.6s linear, top 2.6s linear;
+  transition: left 4s ease-in-out, top 4s ease-in-out;
   cursor: pointer;
 }
 .firefly-target {
@@ -458,19 +458,6 @@ button {
   border-radius: 999px;
   font-size: 14px;
   z-index: 2;
-}
-.firefly-timer {
-  position: absolute;
-  bottom: 8px; left: 8px; right: 8px;
-  height: 8px;
-  background: rgba(255,255,255,.25);
-  border-radius: 8px;
-  overflow: hidden;
-}
-.firefly-timer-fill {
-  height: 100%;
-  background: var(--gold);
-  width: 100%;
 }
 
 .triangle-wrap {

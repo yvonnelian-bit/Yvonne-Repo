@@ -343,17 +343,24 @@ function learnSlidesFor(land) {
     ];
     case 'mermaid': return [
       { title: 'Dive into Mermaid Lagoon! 🧜‍♀️', body: 'A ten-frame has 10 boxes for 10 pearls. Let’s learn bonds to 10!', visual: () => tenFrame(0) },
+      { title: 'You have 10 fingers!', body: 'Hold up 6 fingers. How many are hiding? That’s right, 4! 6 and 4 make 10.', visual: () => handsVisual(6, 4) },
       { title: '6 and 4 make 10', body: 'Fill 6 boxes, then 4 more boxes finishes the ten-frame!', visual: () => tenFrame(6) },
       { title: '8 and 2 make 10', body: 'Just a little more needed to reach 10.', visual: () => tenFrame(8) },
       { title: '5 and 5 make 10', body: 'Twin pearls! 5 and 5 is a double.', visual: () => tenFrame(5) },
-      { title: 'Try it yourself!', body: 'Slide to fill the ten-frame and see the bond.', visual: () => splitterTenFrame(10) }
+      { title: 'Hop along the number line!', body: 'Start at 0. Hop 7 pink hops, then 3 blue hops — you land on 10!', visual: () => numberLineSplit(10, 7) },
+      { title: 'Best Friends of 10', body: 'These pairs are always best friends — remembering them helps everything else!', visual: () => friendPairsRow(10) },
+      { title: 'Try it yourself!', body: 'Slide to fill the ten-frame and see the bond.', visual: () => splitterTenFrame(10) },
+      { title: 'Quick Check! 🐚', body: 'No pressure — just have a go! Tap the shell you think is correct.', visual: () => quickCheckWidget('7 + ⬜ = 10', 3, 10) }
     ];
     case 'fairy': return [
       { title: 'Flutter into Fairy Forest! 🧚', body: 'Teen numbers hide a 10 inside! Let’s stretch our bonds to 20.', visual: () => el('div', { class: 'slide-visual' }, [tenFrame(10), tenFrame(0)]) },
       { title: '10 and 10 make 20', body: 'Two full ten-frames make 20!', visual: () => el('div', { class: 'slide-visual' }, [tenFrame(10), tenFrame(10)]) },
+      { title: 'Thir-TEEN has a TEN hiding inside!', body: 'Teen number names are a clue: 13 sounds like "3 and ten" — it’s 10 and 3! Same with 14, 15, 16...', visual: () => bondDiagram(13, 10, 3) },
       { title: '12 and 8 make 20', body: 'One frame full (10) plus 2 more, and a frame with 8.', visual: () => el('div', { class: 'slide-visual' }, [tenFrame(10), tenFrame(8)]) },
       { title: '15 and 5 make 20', body: 'A full frame plus 5, and a frame with 5.', visual: () => el('div', { class: 'slide-visual' }, [tenFrame(10), tenFrame(5)]) },
-      { title: 'Try it yourself!', body: 'Slide to explore bonds to 20.', visual: () => splitterTenFrame(20) }
+      { title: 'Hop along the number line!', body: 'Start at 0. Hop 14 pink hops, then 6 blue hops — you land on 20!', visual: () => numberLineSplit(20, 14) },
+      { title: 'Try it yourself!', body: 'Slide to explore bonds to 20.', visual: () => splitterTenFrame(20) },
+      { title: 'Quick Check! 🧚', body: 'Give it a try — take your time, there’s no clock!', visual: () => quickCheckWidget('12 + ⬜ = 20', 8, 20) }
     ];
     case 'castle': return [
       { title: 'Welcome to Rainbow Castle! 👑', body: 'Doubles are bonds where both parts are the SAME, like twins!', visual: () => bondDiagram(6, 3, 3) },
@@ -412,6 +419,86 @@ function splitterTenFrame(total) {
   wrap.appendChild(frames);
   wrap.appendChild(el('div', { style: 'display:flex; justify-content:center; margin-top:10px;' }, range));
   wrap.appendChild(label);
+  return wrap;
+}
+
+function handsVisual(a, b) {
+  const wrap = el('div', { class: 'slide-visual', style: 'align-items:center;' });
+  wrap.appendChild(el('div', { style: 'text-align:center;' }, [
+    el('div', { style: 'font-size:44px;' }, '✋'),
+    el('div', { style: 'font-weight:800; color:#ff2e93; font-size:20px;' }, String(a))
+  ]));
+  wrap.appendChild(el('div', { style: 'font-size:28px; font-weight:800; color:#7b3ff2;' }, '+'));
+  wrap.appendChild(el('div', { style: 'text-align:center;' }, [
+    el('div', { style: 'font-size:44px;' }, '✋'),
+    el('div', { style: 'font-weight:800; color:#1a8fd1; font-size:20px;' }, String(b))
+  ]));
+  wrap.appendChild(el('div', { style: 'font-size:28px; font-weight:800; color:#7b3ff2;' }, '='));
+  wrap.appendChild(el('div', { style: 'text-align:center;' }, [
+    el('div', { style: 'font-size:44px;' }, '🙌'),
+    el('div', { style: 'font-weight:800; color:#22b573; font-size:20px;' }, String(a + b))
+  ]));
+  return wrap;
+}
+
+function numberLineSplit(total, a) {
+  const b = total - a;
+  const wrap = el('div', { class: 'slide-visual', style: 'gap:4px;' });
+  wrap.appendChild(el('span', { style: 'font-size:13px; font-weight:800; color:#7b3ff2; display:flex; align-items:center;' }, '0'));
+  for (let i = 1; i <= total; i++) {
+    const isA = i <= a;
+    wrap.appendChild(el('span', {
+      style: `display:flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:50%; font-size:11px; font-weight:800; color:#fff; background:${isA ? '#ff5fa2' : '#3a9be0'};`
+    }, String(i)));
+  }
+  const label = el('div', { style: 'width:100%; text-align:center; font-weight:800; color:#7b3ff2; margin-top:6px; font-size:15px;' }, `${a} pink hops + ${b} blue hops = ${total}`);
+  const outer = el('div', {});
+  outer.appendChild(wrap);
+  outer.appendChild(label);
+  return outer;
+}
+
+function friendPairsRow(target) {
+  const wrap = el('div', { class: 'slide-visual' });
+  pairsForTarget(target).forEach(([a, b]) => {
+    const isDouble = a === b;
+    wrap.appendChild(el('div', {
+      style: `background:${isDouble ? '#fff3c4' : '#fff'}; border:3px solid ${isDouble ? '#e0a800' : '#7b3ff2'}; border-radius:14px; padding:8px 16px; font-weight:800; color:${isDouble ? '#7a4b00' : '#7b3ff2'}; font-size:16px;`
+    }, `${a} & ${b}${isDouble ? ' 👯' : ''}`));
+  });
+  return wrap;
+}
+
+function quickCheckWidget(prompt, answer, maxRange) {
+  const wrap = el('div', {});
+  wrap.appendChild(el('div', { style: 'font-size:19px; font-weight:800; color:#7b3ff2; margin-bottom:10px;' }, prompt));
+  const row = el('div', { class: 'tri-choices' });
+  const feedback = el('div', { class: 'feedback-banner' });
+  const choiceSet = new Set([answer]);
+  while (choiceSet.size < 4) {
+    const d = answer + randInt(-3, 3);
+    if (d >= 0 && d <= maxRange && d !== answer) choiceSet.add(d);
+  }
+  shuffle([...choiceSet]).forEach(v => {
+    const btn = el('button', { class: 'choice-btn' }, String(v));
+    btn.addEventListener('click', () => {
+      if (v === answer) {
+        btn.classList.add('correct');
+        feedback.textContent = 'Yes! You’ve got it! 🎉';
+        feedback.className = 'feedback-banner good';
+        playCorrect(); burstConfetti(6);
+      } else {
+        btn.classList.add('incorrect');
+        feedback.textContent = 'Not quite — give it another try!';
+        feedback.className = 'feedback-banner bad';
+        playWrong();
+        setTimeout(() => btn.classList.remove('incorrect'), 500);
+      }
+    });
+    row.appendChild(btn);
+  });
+  wrap.appendChild(row);
+  wrap.appendChild(feedback);
   return wrap;
 }
 
@@ -622,19 +709,17 @@ function playTenFrameFill(panel, land, onFinish) {
   newRound();
 }
 
-/* --- Land 3: Firefly Catch (bonds to 20, click the correct firefly among decoys, gentle timer) --- */
+/* --- Land 3: Firefly Catch (bonds to 20, click the correct firefly among decoys, no timer — go at your own pace) --- */
 function playFireflyCatch(panel, land, onFinish) {
   let score = 0;
   const roundsNeeded = 6;
   const status = el('div', { class: 'game-status' }, [
-    el('div', {}, '✨ Catch the firefly with the missing number!'),
+    el('div', {}, '✨ Catch the firefly with the missing number! Take your time.'),
     el('div', { class: 'game-target' }, `${score}/${roundsNeeded}`)
   ]);
   const field = el('div', { class: 'firefly-field' });
   const targetLabel = el('div', { class: 'firefly-target' }, '');
-  const timerBar = el('div', { class: 'firefly-timer' }, el('div', { class: 'firefly-timer-fill' }));
   field.appendChild(targetLabel);
-  field.appendChild(timerBar);
   const feedback = el('div', { class: 'feedback-banner' });
 
   panel.appendChild(status);
@@ -642,8 +727,6 @@ function playFireflyCatch(panel, land, onFinish) {
   panel.appendChild(feedback);
 
   let driftInterval = null;
-  let roundTimeout = null;
-  const ROUND_MS = 8000;
 
   function randomPos() { return { top: randInt(8, 70), left: randInt(4, 78) }; }
 
@@ -679,7 +762,6 @@ function playFireflyCatch(panel, land, onFinish) {
           status.querySelector('.game-target').textContent = `${score}/${roundsNeeded}`;
           feedback.textContent = `Sparkly! ${shown} + ${correct} = 20 🌟`;
           feedback.className = 'feedback-banner good';
-          clearTimeout(roundTimeout);
           if (score >= roundsNeeded) {
             clearInterval(driftInterval);
             setTimeout(() => showPlayWin(panel, land, onFinish, () => playFireflyCatch(panel, land, onFinish)), 700);
@@ -698,24 +780,10 @@ function playFireflyCatch(panel, land, onFinish) {
     placeFireflies(nodes);
 
     clearInterval(driftInterval);
-    driftInterval = setInterval(() => placeFireflies(nodes), 2600);
-
-    const fill = timerBar.querySelector('.firefly-timer-fill');
-    fill.style.transition = 'none';
-    fill.style.width = '100%';
-    requestAnimationFrame(() => {
-      fill.style.transition = `width ${ROUND_MS}ms linear`;
-      fill.style.width = '0%';
-    });
-    clearTimeout(roundTimeout);
-    roundTimeout = setTimeout(() => {
-      feedback.textContent = "Time's up, let's try another one!";
-      feedback.className = 'feedback-banner bad';
-      newRound();
-    }, ROUND_MS);
+    driftInterval = setInterval(() => placeFireflies(nodes), 4500);
   }
 
-  registerCleanup(() => { clearInterval(driftInterval); clearTimeout(roundTimeout); });
+  registerCleanup(() => clearInterval(driftInterval));
   newRound();
 }
 
@@ -899,7 +967,7 @@ function renderQuizTab(panel, land, onFinishStars) {
   switch (land.id) {
     case 'unicorn': return quizMultipleChoice(panel, land, onFinishStars);
     case 'mermaid': return quizFillIn(panel, land, onFinishStars);
-    case 'fairy': return quizTimed(panel, land, onFinishStars);
+    case 'fairy': return quizStreak(panel, land, onFinishStars);
     case 'castle': return quizTrueFalse(panel, land, onFinishStars);
     case 'butterfly': return quizFinaleMixed(panel, land, onFinishStars);
   }
@@ -1015,21 +1083,20 @@ function quizFillIn(panel, land, onFinishStars) {
   next();
 }
 
-function quizTimed(panel, land, onFinishStars) {
-  const DURATION = 45;
-  let timeLeft = DURATION;
-  let correct = 0, attempted = 0;
-  const timerRow = el('div', { class: 'timer-strip' }, `⏳ ${timeLeft}s`);
+/* Self-paced sparkle-streak quiz — no clock, so it stays fun instead of stressful. */
+function quizStreak(panel, land, onFinishStars) {
+  const TOTAL = 8;
+  let qi = 0, correct = 0, streak = 0;
+  const bar = el('div', { class: 'quiz-progress-bar' }, el('div', { class: 'quiz-progress-fill' }));
+  const streakRow = el('div', { class: 'timer-strip' }, '✨ Streak: 0');
   const qBox = el('div', { class: 'quiz-question' });
   const opts = el('div', { class: 'quiz-options' });
   const feedback = el('div', { class: 'feedback-banner' });
-  panel.appendChild(el('div', {}, [timerRow, qBox, opts, feedback]));
-
-  let ticking = null;
-  let locked = false;
+  panel.appendChild(el('div', {}, [bar, streakRow, qBox, opts, feedback]));
 
   function next() {
-    if (locked) return;
+    if (qi >= TOTAL) return finish();
+    bar.querySelector('.quiz-progress-fill').style.width = `${(qi / TOTAL) * 100}%`;
     feedback.textContent = ''; feedback.className = 'feedback-banner';
     const q = genMCBondQuestion(land.target);
     qBox.textContent = `🧚 ${q.prompt}`;
@@ -1037,34 +1104,30 @@ function quizTimed(panel, land, onFinishStars) {
     q.choices.forEach(c => {
       const btn = el('button', { class: 'opt-btn' }, String(c));
       btn.addEventListener('click', () => {
-        if (locked) return;
-        attempted++;
-        if (c === q.answer) { playCorrect(); correct++; feedback.textContent = 'Fairy fast and correct! ✨'; feedback.className = 'feedback-banner good'; }
-        else { playWrong(); feedback.textContent = `Answer: ${q.answer}`; feedback.className = 'feedback-banner bad'; }
-        next();
+        [...opts.children].forEach(b => b.disabled = true);
+        if (c === q.answer) {
+          btn.classList.add('correct'); playCorrect(); correct++; streak++;
+          streakRow.textContent = `✨ Streak: ${streak}`;
+          feedback.textContent = streak >= 3 ? `${streak} in a row, amazing! ✨` : 'Yay! That’s right!';
+          feedback.className = 'feedback-banner good';
+          if (streak > 0 && streak % 3 === 0) burstConfetti(10);
+        } else {
+          btn.classList.add('incorrect'); playWrong(); streak = 0;
+          streakRow.textContent = '✨ Streak: 0';
+          feedback.textContent = `So close! The answer was ${q.answer}.`; feedback.className = 'feedback-banner bad';
+          [...opts.children].find(b => b.textContent == q.answer)?.classList.add('correct');
+        }
+        qi++;
+        setTimeout(next, 1100);
       });
       opts.appendChild(btn);
     });
   }
 
-  ticking = setInterval(() => {
-    timeLeft--;
-    timerRow.textContent = `⏳ ${timeLeft}s`;
-    if (timeLeft <= 0) {
-      clearInterval(ticking);
-      locked = true;
-      finish();
-    }
-  }, 1000);
-  registerCleanup(() => clearInterval(ticking));
-
   function finish() {
-    opts.innerHTML = '';
-    qBox.textContent = "Time's up! ⏰";
-    const ratio = attempted > 0 ? correct / attempted : 0;
-    // bonus consideration for volume answered, but ratio-based keeps it kind
-    const stars = attempted === 0 ? 1 : starsForRatio(ratio >= 0.6 ? Math.max(ratio, Math.min(1, correct / 6)) : ratio);
-    showQuizResult(panel, land, stars, correct, attempted || 1, () => quizTimed(panel, land, onFinishStars), true);
+    bar.querySelector('.quiz-progress-fill').style.width = '100%';
+    const stars = starsForRatio(correct / TOTAL);
+    showQuizResult(panel, land, stars, correct, TOTAL, () => quizStreak(panel, land, onFinishStars));
     onFinishStars(stars);
   }
   next();
