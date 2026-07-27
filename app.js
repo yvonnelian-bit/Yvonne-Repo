@@ -204,6 +204,7 @@ function renderRoot() {
       ])
     ]),
     el('div', { style: 'display:flex; gap:10px; align-items:center;' }, [
+      el('a', { href: 'spelling.html', class: 'icon-btn', title: 'Word Wizard Academy', style: 'text-decoration:none;' }, '📚'),
       el('div', { class: 'stat-pill' }, `⭐ ${totalStars()} / ${LANDS.length * 3}`),
       el('button', {
         class: 'icon-btn', title: 'Sound', onclick: () => {

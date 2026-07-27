@@ -1,0 +1,109 @@
+/* ===== Chloe's Word Wizard Academy — additions on top of styles.css ===== */
+
+.champ-card {
+  border: 3px solid var(--gold) !important;
+  box-shadow: 0 6px 0 rgba(224, 168, 0, .4), 0 0 22px rgba(255, 201, 60, .5);
+}
+
+.spell-emoji { font-size: 46px; text-align: center; margin-bottom: 4px; }
+.spell-word-big {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--purple-deep);
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 8px 0;
+  text-shadow: 1px 1px 0 #fff;
+}
+.spell-sentence {
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+  margin: 8px 0;
+  color: var(--ink);
+}
+.hanzi-display {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--pink-deep);
+  text-align: center;
+  margin: 6px 0;
+}
+.pinyin-display {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a8fd1;
+  text-align: center;
+  margin: 4px 0;
+}
+
+.listen-btn { animation: pulseGlow 1.8s ease-in-out infinite; }
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 4px 0 #6a2fd6; }
+  50% { box-shadow: 0 4px 0 #6a2fd6, 0 0 14px 4px rgba(255, 201, 60, .55); }
+}
+
+.spell-input {
+  width: 220px;
+  font-size: 24px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 14px;
+  border: 3px solid var(--purple);
+  font-family: inherit;
+  font-weight: 800;
+  color: var(--purple-deep);
+}
+
+.answer-strip {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 56px;
+  margin: 12px 0;
+}
+.answer-slot {
+  min-width: 40px;
+  height: 52px;
+  padding: 0 6px;
+  border: 3px dashed #cbb3ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--purple-deep);
+  background: #fff;
+}
+.answer-slot.filled { border-style: solid; background: #ffe9c4; border-color: var(--gold); animation: pop .25s ease; }
+.answer-slot.hanzi-tile { font-size: 28px; min-width: 50px; }
+
+.tile-bank { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 14px 0; }
+.letter-tile {
+  min-width: 44px;
+  height: 52px;
+  padding: 0 10px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--sky), #3a9be0);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .15);
+  user-select: none;
+  transition: transform .1s;
+}
+.letter-tile.hanzi-tile { font-size: 28px; min-width: 54px; }
+.letter-tile:active { transform: translateY(2px); }
+.letter-tile.used { opacity: .2; pointer-events: none; }
+.letter-tile.wrong-flash { animation: shake .3s; background: linear-gradient(180deg, #ff9d9d, #ff5c5c); }
+
+@media (max-width: 480px) {
+  .spell-word-big { font-size: 30px; }
+  .hanzi-display { font-size: 38px; }
+  .spell-input { width: 170px; font-size: 20px; }
+}
