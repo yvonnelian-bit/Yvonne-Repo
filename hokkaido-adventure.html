@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Chloe's Hokkaido Spirit Adventure</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-top:#bfe3ea; --sky-bot:#f3e3c4;
+  --cream:#f7f0e0; --paper:#fffaf0;
+  --forest:#5b7a54; --forest-dark:#3f5a3b; --forest-light:#e4ecdd;
+  --blossom:#f0aac0; --blossom-dark:#d97f9c; --blossom-light:#fbe6ee;
+  --sun:#eda75a; --sun-dark:#c9843a; --sun-light:#fdf0dd;
+  --water:#7db8c9; --water-dark:#4d8ea3; --water-light:#e3f2f6;
+  --ink:#3d4a3f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Nunito',sans-serif;line-height:1.5}
+h1,h2,h3,.display{font-family:'Baloo 2',sans-serif}
+.script{font-family:'Caveat',cursive}
+.zh{font-family:'Noto Sans SC','Nunito',sans-serif}
+button{font-family:inherit;cursor:pointer}
+
+header{background:linear-gradient(180deg,var(--sky-top),var(--sky-bot));padding:26px 16px 76px;position:relative;overflow:hidden;text-align:center}
+.cloud{position:absolute;background:#fff;border-radius:50px;opacity:.75;filter:blur(.5px)}
+.cloud:before,.cloud:after{content:"";position:absolute;background:#fff;border-radius:50%}
+.c1{width:90px;height:30px;top:22px;left:6%}
+.c1:before{width:46px;height:46px;top:-22px;left:8px}
+.c1:after{width:34px;height:34px;top:-16px;left:44px}
+.c2{width:70px;height:24px;top:60px;right:8%}
+.c2:before{width:36px;height:36px;top:-18px;left:6px}
+.c2:after{width:26px;height:26px;top:-12px;left:36px}
+.c3{width:60px;height:20px;top:10px;left:44%;opacity:.55}
+.c3:before{width:30px;height:30px;top:-15px;left:5px}
+.spark{position:absolute;font-size:12px;opacity:.8;animation:twinkle 2.4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+.leaf{position:absolute;font-size:16px;opacity:.7;animation:drift 6s linear infinite}
+@keyframes drift{0%{transform:translateY(-20px) translateX(0) rotate(0deg);opacity:0}10%{opacity:.7}100%{transform:translateY(160px) translateX(24px) rotate(200deg);opacity:0}}
+header .hero-emoji{font-size:38px;position:relative;z-index:2}
+header h1{font-size:clamp(24px,6.4vw,38px);margin:8px 0 2px;color:var(--forest-dark);position:relative;z-index:2}
+header .subtitle{font-family:'Caveat',cursive;font-size:22px;color:var(--sun-dark);margin:0;position:relative;z-index:2}
+header .dates{margin:6px 0 0;opacity:.75;font-size:13px;position:relative;z-index:2}
+.wave{position:absolute;bottom:-1px;left:0;width:100%;height:56px;background:var(--cream);border-radius:50% 50% 0 0/100% 100% 0 0}
+.hill{position:absolute;bottom:0;left:0;width:100%;height:40px;background:var(--forest);opacity:.35;border-radius:50% 50% 0 0/100% 100% 0 0}
+
+nav{position:sticky;top:0;z-index:50;display:flex;gap:6px;overflow-x:auto;background:var(--cream);padding:10px 12px;border-bottom:3px dashed var(--sun);-webkit-overflow-scrolling:touch}
+nav button{flex:0 0 auto;border:2px solid var(--forest);background:#fff;color:var(--forest-dark);border-radius:999px;padding:8px 14px;font-weight:800;font-size:13px;white-space:nowrap}
+nav button.active{background:var(--forest);color:#fff}
+
+main{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+section{display:none;animation:fade .3s ease}
+section.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.card{background:var(--paper);border:2px solid rgba(91,122,84,.15);border-radius:22px;padding:18px;margin-bottom:14px;box-shadow:0 6px 18px rgba(61,74,63,.08)}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blossom-dark)}
+h2.title{font-size:24px;margin:6px 0 14px;color:var(--forest-dark)}
+
+.fact{display:flex;gap:12px;align-items:flex-start;background:var(--water-light);border-radius:16px;padding:14px;margin-bottom:10px}
+.fact .emoji{font-size:28px;flex:0 0 auto}
+.fact b{display:block;color:var(--forest-dark)}
+.fact .zh{color:#3a5a4a;font-size:14px;margin-top:2px}
+
+.place{background:#fff;border-radius:18px;padding:16px;margin-bottom:14px;border-left:6px solid var(--forest)}
+.place h3{margin:0 0 4px;color:var(--forest-dark);font-size:19px}
+.place .en-zh{font-size:13px;color:var(--sun-dark);font-weight:700;margin-bottom:8px}
+.vocab-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.vocab-chip{background:var(--forest-light);color:var(--forest-dark);border-radius:999px;padding:5px 10px;font-size:12px;font-weight:700}
+
+.day-card{background:#fff;border-radius:18px;padding:14px 16px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+.day-num{background:var(--forest);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto;font-family:'Baloo 2',sans-serif}
+.day-card h4{margin:0 0 2px;color:var(--forest-dark);font-size:16px}
+.day-card p{margin:0;font-size:14px;color:#444}
+.spot-list{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+.spot-item{display:flex;gap:8px;align-items:center;font-size:13px}
+.spot-item input{width:18px;height:18px;accent-color:var(--blossom-dark)}
+.stamp-badge{margin-left:auto;font-size:22px;opacity:.15;transition:opacity .3s,transform .3s}
+.stamp-badge.earned{opacity:1;transform:scale(1.15) rotate(-8deg)}
+
+.game-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.game-tile{background:#fff;border:none;border-radius:18px;padding:16px 12px;text-align:center;box-shadow:0 6px 14px rgba(61,74,63,.10)}
+.game-tile .emoji{font-size:32px;display:block;margin-bottom:6px}
+.game-tile b{display:block;color:var(--forest-dark);font-size:14px}
+.game-tile span{font-size:11px;color:var(--blossom-dark);font-weight:800;text-transform:uppercase}
+.game-tile.long{grid-column:1/-1}
+
+.panel{display:none;background:#fff;border-radius:20px;padding:18px;margin-top:14px;border:2px solid var(--sun)}
+.panel.active{display:block}
+.panel-close{float:right;background:var(--forest);color:#fff;border:none;border-radius:999px;width:30px;height:30px;font-weight:800}
+.panel h3{margin:0 0 10px;color:var(--forest-dark)}
+
+.match-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.match-card{background:var(--water-light);border:2px solid var(--water);border-radius:12px;padding:12px 6px;text-align:center;font-weight:800;font-size:13px;min-height:56px;display:flex;align-items:center;justify-content:center;color:var(--forest-dark)}
+.match-card.selected{background:var(--sun);color:#fff;border-color:var(--sun-dark)}
+.match-card.matched{background:var(--forest-light);border-color:var(--forest);color:var(--forest-dark);opacity:.55}
+.progress-line{font-size:13px;color:var(--forest-dark);font-weight:800;margin-top:10px;text-align:center}
+
+.quiz-q{font-weight:800;color:var(--forest-dark);margin-bottom:10px}
+.quiz-opt{display:block;width:100%;text-align:left;background:var(--water-light);border:2px solid var(--water);border-radius:12px;padding:10px 14px;margin-bottom:8px;font-weight:700;font-size:14px}
+.quiz-opt.correct{background:var(--forest-light);border-color:var(--forest)}
+.quiz-opt.wrong{background:var(--blossom-light);border-color:var(--blossom)}
+
+.pack-item{display:flex;align-items:center;gap:10px;background:var(--blossom-light);border-radius:12px;padding:10px 12px;margin-bottom:6px;font-weight:700;font-size:14px}
+.pack-item input{width:20px;height:20px;accent-color:var(--blossom-dark)}
+.pack-item.done{text-decoration:line-through;opacity:.55}
+.bar-bg{background:#eee;border-radius:999px;height:14px;overflow:hidden;margin-top:12px}
+.bar-fill{background:linear-gradient(90deg,var(--blossom-dark),var(--sun));height:100%;width:0%;transition:width .4s}
+
+.order-tray{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.order-chip{background:var(--sun);color:#fff;border:none;border-radius:12px;padding:10px 12px;font-weight:800;font-size:13px}
+.order-chip:disabled{opacity:.3}
+.order-slots{display:flex;flex-wrap:wrap;gap:6px;background:var(--water-light);border-radius:12px;padding:10px;min-height:44px}
+.order-slot{background:#fff;border:2px dashed var(--water);border-radius:10px;padding:8px 10px;font-size:12px;font-weight:800;color:var(--forest-dark);min-width:38px;text-align:center}
+
+.xword-wrap{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+.xword-grid{display:grid;gap:2px;background:var(--forest-dark);border:2px solid var(--forest-dark);border-radius:6px;padding:2px;flex:0 0 auto}
+.xcell{width:32px;height:32px;background:var(--cream);position:relative}
+.xcell.blocked{background:transparent;border:none}
+.xcell input{width:100%;height:100%;border:none;background:transparent;text-align:center;font-weight:800;font-size:15px;text-transform:uppercase;color:var(--forest-dark);font-family:'Nunito',sans-serif}
+.xcell input:focus{outline:2px solid var(--sun);background:#fff}
+.xcell .num{position:absolute;top:1px;left:2px;font-size:8px;font-weight:800;color:var(--blossom-dark)}
+.xclues{flex:1;min-width:160px;font-size:13px}
+.xclues b{display:block;color:var(--forest-dark);margin:6px 0 2px}
+
+.wsearch-grid{display:grid;gap:2px;margin-top:10px;user-select:none}
+.wcell{width:30px;height:30px;background:var(--water-light);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;border-radius:4px;color:var(--forest-dark);cursor:pointer}
+.wcell.sel{background:var(--sun);color:#fff}
+.wcell.found{background:var(--forest);color:#fff}
+.wlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.wlist span{background:var(--blossom-light);border-radius:999px;padding:5px 10px;font-size:12px;font-weight:700;color:var(--blossom-dark)}
+.wlist span.done{background:var(--forest-light);color:var(--forest-dark);text-decoration:line-through}
+
+.ttt-board{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:220px;margin:10px auto}
+.ttt-cell{aspect-ratio:1;background:var(--water-light);border:none;border-radius:12px;font-size:32px;display:flex;align-items:center;justify-content:center}
+.ttt-turn{text-align:center;font-weight:800;color:var(--forest-dark);margin-top:8px}
+
+.celebrate{text-align:center;padding:20px;font-size:18px;font-weight:800;color:var(--forest-dark)}
+.reset-btn{display:block;margin:14px auto 0;background:var(--forest);color:#fff;border:none;border-radius:999px;padding:10px 20px;font-weight:800}
+
+.passport-progress{position:sticky;bottom:0;background:var(--forest-dark);color:#fff;padding:10px 16px;text-align:center;font-weight:800;font-size:13px}
+.passport-progress span{color:var(--sun)}
+
+/* ---- adventure-specific ---- */
+.chapter-map{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.chapter-node{background:#fff;border:none;border-radius:20px;padding:18px 10px;text-align:center;box-shadow:0 6px 14px rgba(61,74,63,.10);position:relative}
+.chapter-node .emoji{font-size:34px;display:block;margin-bottom:6px}
+.chapter-node b{display:block;color:var(--forest-dark);font-size:14px}
+.chapter-node .theme{font-size:11px;color:var(--blossom-dark);font-weight:800;text-transform:uppercase;display:block;margin-top:2px}
+.chapter-node .prog{margin-top:6px;font-size:11px;font-weight:800;color:var(--sun-dark)}
+.chapter-node.locked{opacity:.5}
+.chapter-node.locked .emoji{filter:grayscale(1)}
+.chapter-node .lock{position:absolute;top:10px;right:12px;font-size:16px}
+.chapter-node.done{border:2px solid var(--sun)}
+
+.mochi-row{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
+.mochi-face{font-size:30px;flex:0 0 auto}
+.mochi-bubble{background:var(--forest-light);border-radius:16px;border-bottom-left-radius:4px;padding:12px 14px;font-weight:700;color:var(--forest-dark);flex:1}
+
+.activity-list{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.activity-btn{display:flex;align-items:center;gap:10px;background:var(--water-light);border:2px solid var(--water);border-radius:14px;padding:12px 14px;font-weight:800;color:var(--forest-dark);text-align:left;width:100%}
+.activity-btn.done{background:var(--forest-light);border-color:var(--forest)}
+.activity-btn .a-emoji{font-size:22px}
+.activity-btn .a-check{margin-left:auto;font-size:18px;opacity:.25}
+.activity-btn.done .a-check{opacity:1}
+
+.adv-back{background:none;border:none;color:var(--forest-dark);font-weight:800;margin-bottom:10px;padding:0;text-align:left;font-size:14px}
+
+.mg-instructions{font-size:13px;color:#555;margin:0 0 10px}
+.mg-status{font-size:13px;font-weight:800;color:var(--forest-dark);margin-top:10px;text-align:center}
+
+.collector-stage{position:relative;height:220px;background:var(--water-light);border-radius:16px;overflow:hidden}
+.collector-item{position:absolute;font-size:30px;cursor:pointer;transition:opacity .15s,transform .15s;animation:pop .25s ease}
+@keyframes pop{from{transform:scale(.3)}to{transform:scale(1)}}
+
+.memory-grid{display:grid;gap:8px;margin-top:8px}
+.memory-card{background:var(--water-light);border:2px solid var(--water);border-radius:12px;padding:10px 4px;min-height:56px;font-weight:800;font-size:12px;color:var(--forest-dark)}
+.memory-card.selected{background:var(--sun);color:#fff;border-color:var(--sun-dark)}
+.memory-card.matched{background:var(--forest-light);border-color:var(--forest);opacity:.5}
+
+.simon-pads{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:220px;margin:14px auto}
+.simon-pad{background:var(--water-light);border:2px solid var(--water);border-radius:16px;font-size:34px;padding:20px 0}
+.simon-pad.lit{background:var(--sun);border-color:var(--sun-dark);transform:scale(1.05)}
+
+.fish-stage{position:relative;height:160px;background:var(--water-light);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:40px;overflow:hidden}
+.fish-bite{position:absolute;font-size:36px;top:50%;left:50%;transform:translate(-50%,-50%);cursor:pointer}
+
+.hidden-grid{display:grid;gap:4px;margin-top:8px}
+.hidden-cell{background:var(--water-light);border:none;border-radius:8px;font-size:18px;aspect-ratio:1}
+.hidden-cell.found{background:var(--forest);color:#fff}
+.hidden-cell.shake{animation:shake .3s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+
+.reward-screen{text-align:center;padding:20px}
+.reward-crystal{font-size:60px;display:inline-block;animation:spin-in .6s ease}
+@keyframes spin-in{from{transform:scale(0) rotate(-30deg)}to{transform:scale(1) rotate(0)}}
+
+.backpack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.backpack-slot{background:#fff;border-radius:14px;padding:14px 6px;text-align:center;font-size:28px;box-shadow:0 4px 10px rgba(61,74,63,.08)}
+.backpack-slot.locked{opacity:.25}
+.backpack-slot span{display:block;font-size:11px;font-weight:800;color:var(--forest-dark);margin-top:4px}
+
+.vocab-entry{display:flex;gap:10px;align-items:center;background:var(--blossom-light);border-radius:12px;padding:10px 12px;margin-bottom:6px}
+.vocab-entry b{color:var(--forest-dark)}
+.vocab-entry .py{font-size:12px;color:var(--blossom-dark)}
+
+.achievement{display:flex;gap:10px;align-items:center;background:#fff;border-radius:14px;padding:12px 14px;margin-bottom:8px;box-shadow:0 4px 10px rgba(61,74,63,.08)}
+.achievement.locked{opacity:.4}
+.achievement .a-emoji{font-size:26px}
+.achievement b{display:block;color:var(--forest-dark);font-size:14px}
+.achievement small{color:#666}
+
+@media(min-width:600px){.game-grid{grid-template-columns:1fr 1fr 1fr}.game-tile.long{grid-column:span 1}.chapter-map{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  <div class="spark" style="top:30px;left:20%;animation-delay:.2s">✨</div>
+  <div class="spark" style="top:70px;left:70%;animation-delay:1s">✨</div>
+  <div class="spark" style="top:45px;left:85%;animation-delay:1.6s">✨</div>
+  <div class="leaf" style="left:15%;animation-delay:.5s">🍃</div>
+  <div class="leaf" style="left:60%;animation-delay:2.2s">🍃</div>
+  <div class="leaf" style="left:80%;animation-delay:4s">🍁</div>
+  <div class="hero-emoji">🌸🐻🎐</div>
+  <h1>Chloe's Hokkaido<br/>Spirit Adventure</h1>
+  <p class="subtitle">a cozy storybook journey with Mochi the forest spirit</p>
+  <p class="dates">11–19 September 2026</p>
+  <div class="hill"></div>
+  <div class="wave"></div>
+</header>
+
+<nav id="nav">
+  <button data-target="home" class="active">🏠 Home</button>
+  <button data-target="adventure">🗺️ Adventure</button>
+  <button data-target="passport">📔 Passport</button>
+  <button data-target="backpack">🎒 Backpack</button>
+  <button data-target="arcade">🎮 Arcade</button>
+</nav>
+
+<main>
+
+<section id="home" class="active">
+  <div class="card">
+    <div class="eyebrow">Welcome, Explorer!</div>
+    <h2 class="title">你好! Konnichiwa! Hello!</h2>
+    <p>You are going on a big adventure to <b>Hokkaido (北海道)</b> — the snowy top part of Japan! On the way you'll meet <b>Mochi</b>, a tiny forest spirit who needs your help finding <b>6 Spirit Crystals</b> scattered across the land.</p>
+    <p>Every real place on your trip is also a chapter in the story. Play mini-games to earn each crystal, learn new words in <b>English</b> and <b>Chinese</b>, collect stickers, and fill your Passport with stamps!</p>
+  </div>
+  <div class="mochi-row">
+    <div class="mochi-face">🌿✨</div>
+    <div class="mochi-bubble" id="mochi-line">Hello Chloe! I'm Mochi. Tap "Adventure" up top to start exploring Hokkaido with me!</div>
+  </div>
+  <button class="reset-btn" id="talk-mochi" style="margin:0 auto 14px">💬 Talk to Mochi</button>
+  <div class="fact">
+    <div class="emoji">🍃</div>
+    <div><b>How to use this passport</b>
+    <div>🗺️ <b>Adventure</b> — the main story, chapters &amp; mini-games with Mochi. 📔 <b>Passport</b> — facts, places &amp; your day-by-day trip. 🎒 <b>Backpack</b> — crystals, stickers, words you've learned &amp; achievements. 🎮 <b>Arcade</b> — bonus games any time!</div></div>
+  </div>
+</section>
+
+<section id="adventure">
+  <div class="card" id="adventure-root"></div>
+</section>
+
+<section id="passport">
+  <div class="card">
+    <div class="eyebrow">Geography &amp; Weather</div>
+    <h2 class="title">About Japan &amp; Hokkaido</h2>
+
+    <div class="fact"><div class="emoji">🗾</div><div><b>Japan is an island country</b>
+    <div class="zh">日本是一个岛国 (Rìběn shì yīgè dǎoguó)</div>
+    <div>It's made of 4 big islands and thousands of tiny ones, sitting in the ocean next to China and Korea.</div></div></div>
+
+    <div class="fact"><div class="emoji">⬆️</div><div><b>Hokkaido is at the very top</b>
+    <div class="zh">北海道在最北边 (Běihǎidào zài zuì běibiān)</div>
+    <div>It's Japan's 2nd biggest island, like the "hat" on top of the country. It's the coolest, snowiest part!</div></div></div>
+
+    <div class="fact"><div class="emoji">🐄</div><div><b>Home of milk and cheese</b>
+    <div class="zh">牛奶和奶酪的故乡 (Niúnǎi hé nǎilào de gùxiāng)</div>
+    <div>Hokkaido has SO many dairy cows that most of Japan's milk, butter and cheese comes from here.</div></div></div>
+
+    <div class="fact"><div class="emoji">🌸</div><div><b>Famous for purple lavender fields</b>
+    <div class="zh">薰衣草花田 (Xūnyīcǎo huātián)</div>
+    <div>In summer, Furano's hills turn purple with lavender flowers! By September the flowers are mostly done, but the green hills are still pretty.</div></div></div>
+
+    <div class="fact"><div class="emoji">🐻</div><div><b>Wild bears live here</b>
+    <div class="zh">这里有野生的熊 (Zhèlǐ yǒu yěshēng de xióng)</div>
+    <div>Hokkaido has real wild brown bears in the forests — that's why we stay on paths and listen to the grown-ups!</div></div></div>
+
+    <div class="fact"><div class="emoji">🌡️</div><div><b>September weather: jacket time</b>
+    <div class="zh">九月的天气：要穿外套 (Jiǔyuè de tiānqì: yào chuān wàitào)</div>
+    <div>It won't be snowing yet, but mornings and evenings are cool — like the start of autumn. Bring a light jacket!</div></div></div>
+
+    <div class="fact"><div class="emoji">✏️</div><div><b>They write with kanji, just like Chinese!</b>
+    <div class="zh">用汉字写字 (Yòng hànzì xiězì)</div>
+    <div>Japanese writing uses kanji characters borrowed from Chinese long ago, plus two extra alphabets called hiragana and katakana.</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Where You're Going</div>
+    <h2 class="title">Places on Your Trip</h2>
+
+    <div class="place"><h3>🏔️ Tomamu (トマム)</h3><div class="en-zh">占冠 · Zhàn guàn</div>
+    <p>A mountain resort where you're staying first! Wake up early and you might see the <b>Unkai</b> — a "Sea of Clouds" — where you stand ABOVE the clouds like you're floating!</p>
+    <div class="vocab-row"><span class="vocab-chip">mountain 山 shān</span><span class="vocab-chip">cloud 云 yún</span><span class="vocab-chip">forest 森林 sēnlín</span></div></div>
+
+    <div class="place"><h3>🧀 Furano (富良野)</h3><div class="en-zh">富良野 · Fùliángyě</div>
+    <p>A farming town famous for cheese and lavender! You'll visit a real cheese factory and eat pizza and cheese soft-serve ice cream.</p>
+    <div class="vocab-row"><span class="vocab-chip">cheese 奶酪 nǎilào</span><span class="vocab-chip">farm 农场 nóngchǎng</span><span class="vocab-chip">ice cream 冰淇淋 bīngqílín</span></div></div>
+
+    <div class="place"><h3>🎨 Biei (美瑛)</h3><div class="en-zh">美瑛 · Měiyīng</div>
+    <p>Rolling hills that look like a patchwork quilt from above, plus the <b>Blue Pond</b> — water so bright blue it looks painted!</p>
+    <div class="vocab-row"><span class="vocab-chip">hill 山丘 shānqiū</span><span class="vocab-chip">blue 蓝色 lánsè</span><span class="vocab-chip">pond 池塘 chítáng</span></div></div>
+
+    <div class="place"><h3>🍜 Asahikawa (旭川)</h3><div class="en-zh">旭川 · Xùchuān</div>
+    <p>A city famous for ramen noodle soup! There's a whole "Ramen Village" with lots of shops, plus maybe a visit to a famous zoo.</p>
+    <div class="vocab-row"><span class="vocab-chip">noodles 面条 miàntiáo</span><span class="vocab-chip">city 城市 chéngshì</span><span class="vocab-chip">zoo 动物园 dòngwùyuán</span></div></div>
+
+    <div class="place"><h3>⛵ Otaru (小樽)</h3><div class="en-zh">小樽 · Xiǎozūn</div>
+    <p>An old seaside town with a pretty canal, glass-blowing shops, music boxes, and delicious sushi!</p>
+    <div class="vocab-row"><span class="vocab-chip">canal 运河 yùnhé</span><span class="vocab-chip">sushi 寿司 shòusī</span><span class="vocab-chip">glass 玻璃 bōlí</span></div></div>
+
+    <div class="place"><h3>🌋 Lake Toya (洞爺湖)</h3><div class="en-zh">洞爺湖 · Dòngyé hú</div>
+    <p>A round lake sitting inside an old volcano! You'll ride a cable car up a smaller volcano nearby and might see fireworks over the lake at night.</p>
+    <div class="vocab-row"><span class="vocab-chip">lake 湖 hú</span><span class="vocab-chip">volcano 火山 huǒshān</span><span class="vocab-chip">fireworks 烟花 yānhuā</span></div></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Day By Day</div>
+    <h2 class="title">Your 9-Day Adventure</h2>
+    <p style="font-size:13px;color:#666">Tick off what you spot each day to earn a passport stamp! ⭐</p>
+    <div id="day-list"></div>
+  </div>
+</section>
+
+<section id="backpack">
+  <div class="card">
+    <div class="eyebrow">Your Collection</div>
+    <h2 class="title">🎒 Backpack</h2>
+
+    <h3 style="color:var(--forest-dark);font-size:15px;margin-bottom:4px">💎 Spirit Crystals</h3>
+    <div class="backpack-grid" id="crystal-grid"></div>
+
+    <h3 style="color:var(--forest-dark);font-size:15px;margin:16px 0 4px">🌸 Stickers</h3>
+    <div class="backpack-grid" id="sticker-grid"></div>
+
+    <h3 style="color:var(--forest-dark);font-size:15px;margin:16px 0 4px">📖 Vocabulary Book</h3>
+    <div id="vocab-book"></div>
+
+    <h3 style="color:var(--forest-dark);font-size:15px;margin:16px 0 4px">⭐ Achievements</h3>
+    <div id="achievement-list"></div>
+
+    <button class="reset-btn" id="reset-adventure" style="background:var(--blossom-dark)">🔄 Reset Adventure Progress</button>
+  </div>
+</section>
+
+<section id="arcade">
+  <div class="card">
+    <div class="eyebrow">Play &amp; Learn</div>
+    <h2 class="title">Bonus Arcade</h2>
+    <div class="game-grid">
+      <button class="game-tile" data-game="match"><span class="emoji">🀄</span><b>Word Match</b><span>Quick</span></button>
+      <button class="game-tile" data-game="quiz"><span class="emoji">❓</span><b>Fact Quiz</b><span>Quick</span></button>
+      <button class="game-tile" data-game="pack"><span class="emoji">🧳</span><b>Pack Your Bag</b><span>Quick</span></button>
+      <button class="game-tile" data-game="ttt"><span class="emoji">🌸</span><b>Tic Tac Toe</b><span>Quick, 2 players</span></button>
+      <button class="game-tile long" data-game="wsearch"><span class="emoji">🔎</span><b>Word Search</b><span>Longer game</span></button>
+      <button class="game-tile long" data-game="xword"><span class="emoji">✏️</span><b>Crossword</b><span>Longer game</span></button>
+      <button class="game-tile long" data-game="order"><span class="emoji">🔢</span><b>Put the Trip in Order</b><span>Longer game</span></button>
+    </div>
+
+    <div class="panel" id="panel-match"><button class="panel-close" data-close>✕</button><h3>🀄 Word Match</h3>
+      <p style="font-size:13px;color:#666;margin-top:-6px">Tap two cards that mean the same thing in English and Chinese!</p>
+      <div class="match-grid" id="match-grid"></div>
+      <div class="progress-line" id="match-progress"></div>
+      <button class="reset-btn" id="match-reset">🔄 Play Again</button></div>
+
+    <div class="panel" id="panel-quiz"><button class="panel-close" data-close>✕</button><h3>❓ Fact Quiz</h3>
+      <div id="quiz-body"></div><div class="progress-line" id="quiz-progress"></div></div>
+
+    <div class="panel" id="panel-pack"><button class="panel-close" data-close>✕</button><h3>🧳 Pack Your Bag</h3>
+      <p style="font-size:13px;color:#666;margin-top:-6px">Tap each thing you need for Hokkaido!</p>
+      <div id="pack-list"></div>
+      <div class="bar-bg"><div class="bar-fill" id="pack-bar"></div></div>
+      <div class="progress-line" id="pack-progress"></div></div>
+
+    <div class="panel" id="panel-ttt"><button class="panel-close" data-close>✕</button><h3>🌸 Sakura vs Bear Tic Tac Toe</h3>
+      <p style="font-size:13px;color:#666;margin-top:-6px">Two players take turns — first to get 3 in a row wins!</p>
+      <div class="ttt-board" id="ttt-board"></div>
+      <div class="ttt-turn" id="ttt-turn"></div>
+      <button class="reset-btn" id="ttt-reset">🔄 New Game</button></div>
+
+    <div class="panel" id="panel-wsearch"><button class="panel-close" data-close>✕</button><h3>🔎 Word Search</h3>
+      <p style="font-size:13px;color:#666;margin-top:-6px">Tap the first letter, then the last letter of a hidden word.</p>
+      <div class="wsearch-grid" id="wsearch-grid"></div>
+      <div class="wlist" id="wsearch-list"></div>
+      <div class="progress-line" id="wsearch-progress"></div>
+      <button class="reset-btn" id="wsearch-reset">🔄 Play Again</button></div>
+
+    <div class="panel" id="panel-xword"><button class="panel-close" data-close>✕</button><h3>✏️ Crossword</h3>
+      <div class="xword-wrap">
+        <div class="xword-grid" id="xword-grid"></div>
+        <div class="xclues" id="xword-clues"></div>
+      </div>
+      <button class="reset-btn" id="xword-check">✅ Check My Answers</button>
+      <div class="progress-line" id="xword-progress"></div></div>
+
+    <div class="panel" id="panel-order"><button class="panel-close" data-close>✕</button><h3>🔢 Put the Trip in Order</h3>
+      <p style="font-size:13px;color:#666;margin-top:-6px">Tap the places in the order you'll visit them!</p>
+      <div class="order-tray" id="order-tray"></div>
+      <div class="order-slots" id="order-slots"></div>
+      <div class="progress-line" id="order-progress"></div>
+      <button class="reset-btn" id="order-reset">🔄 Play Again</button></div>
+  </div>
+</section>
+
+</main>
+
+<div class="passport-progress">💎 Crystals: <span id="crystal-count">0</span>/6 &nbsp;·&nbsp; ⭐ Stamps: <span id="stamp-count">0</span>/9</div>
+
+<script>
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+function $(sel, root){ return (root||document).querySelector(sel); }
+function $all(sel, root){ return Array.from((root||document).querySelectorAll(sel)); }
+function shuffle(arr){ const a = arr.slice(); for(let i=a.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+const STORAGE_KEY = 'chloeHokkaidoAdventure_v1';
+function loadState(){
+  try{ const raw = localStorage.getItem(STORAGE_KEY); if(raw) return JSON.parse(raw); }catch(e){}
+  return null;
+}
+function defaultState(){
+  return {
+    unlocked:[0],
+    completedActivities:{},
+    crystals:[],
+    stickers:[],
+    vocabLearned:[],
+    visitedChapters:[],
+    stamps:{},
+    arcadePlayed:[]
+  };
+}
+let state = loadState() || defaultState();
+function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+$all('#nav button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    $all('#nav button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    $all('main > section').forEach(s=>s.classList.remove('active'));
+    $(`#${btn.dataset.target}`).classList.add('active');
+  });
+});
+
+const mochiLines = [
+  "Hello Chloe! I'm Mochi, a little forest spirit from Hokkaido.",
+  "The balance of nature got a bit wobbly — 6 Spirit Crystals scattered all over the island!",
+  "Every place on your trip is hiding one. Will you help me find them all?",
+  "Play the mini-games in each chapter, and I'll teach you words in English and Chinese along the way!",
+  "You're doing amazing, Chloe. Hokkaido is lucky to have an explorer like you!",
+];
+$('#talk-mochi').addEventListener('click', ()=>{
+  $('#mochi-line').textContent = mochiLines[Math.floor(Math.random()*mochiLines.length)];
+});
+
+/* ============================================================
+   CHAPTER / ADVENTURE DATA
+   ============================================================ */
+const chapters = [
+  {
+    key:'tomamu', emoji:'☁️', name:'Tomamu', zh:'占冠', theme:'Cloud Kingdom',
+    crystal:{emoji:'💎', name:'Cloud Crystal'},
+    sticker:{emoji:'☁️', name:'Cloud Sticker'},
+    intro:"High in the misty mountains, Chloe meets Mochi for the very first time. Fluffy cloud spirits drift over the Sea of Clouds.",
+    mochi:["We're above the clouds here — that's called the Unkai, a Sea of Clouds!", "Some cloud spirits got scattered when the Cloud Crystal cracked. Can you catch them?"],
+    vocab:[{en:'cloud', zh:'云', py:'yún'},{en:'mountain', zh:'山', py:'shān'},{en:'jacket', zh:'外套', py:'wàitào'}],
+    activities:[
+      { id:'clouds', type:'collector', emoji:'☁️', title:'Catch the Cloud Spirits',
+        cfg:{ instructions:"Tap the fluffy clouds before they float away! Don't tap the raindrops.", good:['☁️','🌤️'], bad:'💧', goal:8, time:18 } },
+      { id:'weather', type:'quiz', emoji:'🧥', title:'Weather &amp; Words',
+        cfg:{ instructions:"Help Mochi with a few quick questions!", questions:[
+          {q:"云 (yún) means?", opts:["Cloud","Fire","Fish"], a:0},
+          {q:"What do you wear when mountain mornings feel cool?", opts:["Swimsuit","A light jacket","Sandals"], a:1},
+          {q:"Which island are you exploring?", opts:["Hokkaido","Bali","Texas"], a:0},
+          {q:"The 'Unkai' is a sea of...", opts:["Fish","Sand","Clouds"], a:2},
+        ] } },
+    ],
+  },
+  {
+    key:'furano', emoji:'🧀', name:'Furano', zh:'富良野', theme:'Cheese Valley',
+    crystal:{emoji:'💎', name:'Cheese Crystal'},
+    sticker:{emoji:'🐄', name:'Cow Sticker'},
+    intro:"Down in the farmland, cows graze in green fields and the air smells like fresh cheese. A friendly calf spirit needs a pizza made just right.",
+    mochi:["Furano makes so much of Japan's milk and cheese!", "Can you help build a pizza in the right order, and count some friendly cows?"],
+    vocab:[{en:'cheese', zh:'奶酪', py:'nǎilào'},{en:'cow', zh:'奶牛', py:'nǎiniú'},{en:'flower', zh:'花', py:'huā'}],
+    activities:[
+      { id:'pizza', type:'sequence', emoji:'🍕', title:'Build a Pizza',
+        cfg:{ instructions:"Tap the toppings in the order a pizza chef adds them!", items:[
+          {emoji:'🍕', label:'Dough'}, {emoji:'🍅', label:'Sauce'}, {emoji:'🧀', label:'Cheese'}, {emoji:'🍄', label:'Mushroom'}, {emoji:'🔥', label:'Bake it!'}
+        ] } },
+      { id:'counting', type:'quiz', emoji:'🔢', title:'Counting on the Farm',
+        cfg:{ instructions:"Count carefully!", questions:[
+          {q:"🐄🐄🐄 How many cows?", opts:["2","3","4"], a:1},
+          {q:"🧀🧀 + 🧀 = how many cheese wheels?", opts:["2","3","4"], a:1},
+          {q:"奶酪 (nǎilào) means?", opts:["Cheese","Cow","Flower"], a:0},
+          {q:"🍦🍦🍦🍦 How many ice creams?", opts:["3","4","5"], a:1},
+        ] } },
+    ],
+  },
+  {
+    key:'biei', emoji:'🎨', name:'Biei', zh:'美瑛', theme:'Blue Pond',
+    crystal:{emoji:'💎', name:'Blue Crystal'},
+    sticker:{emoji:'🦋', name:'Butterfly Sticker'},
+    intro:"Patchwork hills roll into the distance, and a pond glows a bright, painted blue. Tiny sparkling spirits are hiding in the grass.",
+    mochi:["This pond looks so blue it seems painted by an artist!", "A few shy spirits are hiding nearby — can you spot them all?"],
+    vocab:[{en:'blue', zh:'蓝色', py:'lánsè'},{en:'pond', zh:'池塘', py:'chítáng'},{en:'hill', zh:'山丘', py:'shānqiū'}],
+    activities:[
+      { id:'hidden', type:'hidden', emoji:'🔎', title:'Hidden Spirit Hunt',
+        cfg:{ instructions:"Tap to find the 3 hidden spirits among the leaves!", targets:['💎','🦋','🍒'], decoy:['🌿','🍃','🌾','🪨','🌸'], gridSize:5 } },
+      { id:'colours', type:'quiz', emoji:'🎨', title:'Colour Match',
+        cfg:{ instructions:"Match the colour words!", questions:[
+          {q:"蓝色 (lánsè) means?", opts:["Red","Blue","Green"], a:1},
+          {q:"What colour is the famous pond in Biei?", opts:["Blue","Brown","Yellow"], a:0},
+          {q:"红色 (hóngsè) means?", opts:["Red","Purple","Blue"], a:0},
+          {q:"In summer, Furano's fields turn what colour?", opts:["Purple (lavender)","Orange","Black"], a:0},
+        ] } },
+    ],
+  },
+  {
+    key:'asahikawa', emoji:'🍜', name:'Asahikawa', zh:'旭川', theme:'Ramen Village',
+    crystal:{emoji:'💎', name:'Harmony Crystal'},
+    sticker:{emoji:'🍜', name:'Noodle Sticker'},
+    intro:"Steam rises from bowls of ramen in a busy noodle village. Zoo animal spirits wander close by, curious about the smell.",
+    mochi:["Ramen Village has so many kinds of noodle soup!", "Let's build a perfect bowl, then say hello to some animal friends."],
+    vocab:[{en:'noodles', zh:'面条', py:'miàntiáo'},{en:'zoo', zh:'动物园', py:'dòngwùyuán'},{en:'city', zh:'城市', py:'chéngshì'}],
+    activities:[
+      { id:'ramen', type:'sequence', emoji:'🍜', title:'Build a Ramen Bowl',
+        cfg:{ instructions:"Tap the ingredients in order to build the bowl!", items:[
+          {emoji:'🍜', label:'Broth'}, {emoji:'🍥', label:'Noodles'}, {emoji:'🥚', label:'Egg'}, {emoji:'🥓', label:'Pork'}, {emoji:'🌿', label:'Green onion'}
+        ] } },
+      { id:'animals', type:'quiz', emoji:'🐧', title:'Animal Friends Quiz',
+        cfg:{ instructions:"Fun facts about animals and noodles!", questions:[
+          {q:"面条 (miàntiáo) means?", opts:["Noodles","Soup bowl","Chopsticks"], a:0},
+          {q:"动物园 (dòngwùyuán) means?", opts:["Restaurant","Zoo","School"], a:1},
+          {q:"Which animal loves cold weather and waddles?", opts:["Penguin","Camel","Lion"], a:0},
+          {q:"Asahikawa is famous for which food?", opts:["Tacos","Ramen noodles","Pancakes"], a:1},
+        ] } },
+    ],
+  },
+  {
+    key:'otaru', emoji:'⛵', name:'Otaru', zh:'小樽', theme:'Treasure Canal',
+    crystal:{emoji:'💎', name:'Water Crystal'},
+    sticker:{emoji:'🎵', name:'Music Box Sticker'},
+    intro:"Lantern light glows along an old stone canal. Music box spirits hum a gentle tune from a tiny shop window.",
+    mochi:["Otaru's canal is one of my favourite places to stroll.", "Help me map the walk, then learn the music box's tune!"],
+    vocab:[{en:'canal', zh:'运河', py:'yùnhé'},{en:'sushi', zh:'寿司', py:'shòusī'},{en:'glass', zh:'玻璃', py:'bōlí'}],
+    activities:[
+      { id:'canalmap', type:'sequence', emoji:'🗺️', title:'Map the Canal Walk',
+        cfg:{ instructions:"Tap the stops in the order you'd stroll them along the canal!", items:[
+          {emoji:'⛩️', label:'Bridge'}, {emoji:'🏮', label:'Lantern street'}, {emoji:'🎐', label:'Glass shop'}, {emoji:'🎶', label:'Music box store'}, {emoji:'🍣', label:'Sushi counter'}
+        ] } },
+      { id:'musicbox', type:'simon', emoji:'🎵', title:'Music Box Memory',
+        cfg:{ instructions:"Watch Mochi's tune, then repeat it back!", pads:[{emoji:'🎵'},{emoji:'🎶'},{emoji:'🔔'},{emoji:'🎹'}], rounds:5 } },
+    ],
+  },
+  {
+    key:'toya', emoji:'🌋', name:'Lake Toya', zh:'洞爺湖', theme:'Volcano Guardian',
+    crystal:{emoji:'💎', name:'Final Crystal'},
+    sticker:{emoji:'🎆', name:'Firework Sticker'},
+    intro:"A round lake sits inside an old volcano, calm and glassy. Tonight, fireworks will light up the water — but first, one last crystal to find.",
+    mochi:["This whole lake sits inside an ancient volcano!", "Match the volcano facts, then let's try some evening fishing before the fireworks."],
+    vocab:[{en:'lake', zh:'湖', py:'hú'},{en:'volcano', zh:'火山', py:'huǒshān'},{en:'fireworks', zh:'烟花', py:'yānhuā'}],
+    activities:[
+      { id:'volcanomatch', type:'memory', emoji:'🌋', title:'Volcano Match',
+        cfg:{ instructions:"Flip two cards to match each picture with its word!", cols:4, pairs:[
+          {a:'🌋', b:'Volcano 火山'}, {a:'🚡', b:'Cable car'}, {a:'🎆', b:'Fireworks 烟花'}, {a:'🐟', b:'Fish'}, {a:'🏞️', b:'Lake 湖'}, {a:'⛰️', b:'Mountain'}
+        ] } },
+      { id:'fishing', type:'fishing', emoji:'🎣', title:'Fishing by the Lake',
+        cfg:{ instructions:"Tap the fish the moment it bites!", rounds:4 } },
+    ],
+  },
+];
+
+const achievementDefs = [
+  {id:'first-crystal', emoji:'🌱', name:'First Steps', desc:'Collect your first Spirit Crystal', check:s=>s.crystals.length>=1},
+  {id:'all-crystals', emoji:'💎', name:'Crystal Master', desc:'Collect all 6 Spirit Crystals', check:s=>s.crystals.length>=6},
+  {id:'word-wizard', emoji:'🈶', name:'Word Wizard', desc:'Learn 10 or more words', check:s=>s.vocabLearned.length>=10},
+  {id:'arcade-fan', emoji:'🎮', name:'Arcade Fan', desc:'Play 3 different arcade games', check:s=>s.arcadePlayed.length>=3},
+  {id:'trip-ready', emoji:'⭐', name:'Trip Ready', desc:'Earn all 9 passport stamps', check:s=>Object.values(s.stamps).filter(Boolean).length>=9},
+];
+
+/* ============================================================
+   MINI-GAME ENGINES (each takes container + cfg + onDone(success))
+   ============================================================ */
+function playCollector(container, cfg, onDone){
+  let score = 0, timeLeft = cfg.time, ended = false;
+  container.innerHTML = `<p class="mg-instructions">${cfg.instructions}</p>
+    <div class="collector-stage" id="cstage"></div>
+    <div class="mg-status">Caught: <span id="cscore">0</span> / ${cfg.goal} &nbsp; ⏱ <span id="ctime">${cfg.time}</span>s</div>`;
+  const stage = $('#cstage', container);
+  function spawn(){
+    if(ended) return;
+    const isGood = Math.random() < 0.72;
+    const emoji = isGood ? cfg.good[Math.floor(Math.random()*cfg.good.length)] : cfg.bad;
+    const item = document.createElement('div');
+    item.className = 'collector-item';
+    item.textContent = emoji;
+    item.style.left = (Math.random()*80+4) + '%';
+    item.style.top = (Math.random()*68+8) + '%';
+    item.addEventListener('click', ()=>{
+      if(ended) return;
+      if(isGood){
+        score++; $('#cscore', container).textContent = score; item.remove();
+        if(score >= cfg.goal) finish(true);
+      } else {
+        item.style.transform = 'scale(1.3)'; item.style.opacity = '0';
+        setTimeout(()=>item.remove(), 150);
+      }
+    });
+    stage.appendChild(item);
+    setTimeout(()=>{ if(item.parentNode) item.remove(); }, 1500);
+  }
+  const spawnTimer = setInterval(spawn, 650);
+  const clockTimer = setInterval(()=>{
+    timeLeft--;
+    const timeEl = $('#ctime', container);
+    if(timeEl) timeEl.textContent = timeLeft;
+    if(timeLeft <= 0) finish(score >= Math.ceil(cfg.goal*0.6));
+  }, 1000);
+  function finish(success){
+    if(ended) return;
+    ended = true;
+    clearInterval(spawnTimer); clearInterval(clockTimer);
+    onDone(success);
+  }
+}
+
+function playMemoryPairs(container, cfg, onDone){
+  let cards = [];
+  cfg.pairs.forEach((p,i)=>{ cards.push({id:'a'+i, text:p.a, pair:i}); cards.push({id:'b'+i, text:p.b, pair:i}); });
+  cards = shuffle(cards);
+  container.innerHTML = `<p class="mg-instructions">${cfg.instructions}</p>
+    <div class="memory-grid" id="mgrid"></div>
+    <div class="mg-status" id="mgstatus">Matched: 0 / ${cfg.pairs.length}</div>`;
+  const grid = $('#mgrid', container);
+  grid.style.gridTemplateColumns = `repeat(${cfg.cols || 4},1fr)`;
+  let sel = [], found = 0, lock = false;
+  cards.forEach(c=>{
+    const d = document.createElement('button');
+    d.className = 'memory-card'; d.textContent = c.text;
+    d.dataset.pair = c.pair; d.dataset.id = c.id;
+    d.addEventListener('click', ()=>{
+      if(lock || d.classList.contains('matched') || d.classList.contains('selected')) return;
+      d.classList.add('selected'); sel.push(d);
+      if(sel.length === 2){
+        lock = true;
+        const [x,y] = sel;
+        if(x.dataset.pair === y.dataset.pair){
+          setTimeout(()=>{
+            x.classList.add('matched'); y.classList.add('matched');
+            x.classList.remove('selected'); y.classList.remove('selected');
+            found++;
+            $('#mgstatus', container).textContent = `Matched: ${found} / ${cfg.pairs.length}`;
+            sel = []; lock = false;
+            if(found === cfg.pairs.length) setTimeout(()=>onDone(true), 300);
+          }, 350);
+        } else {
+          setTimeout(()=>{ x.classList.remove('selected'); y.classList.remove('selected'); sel = []; lock = false; }, 600);
+        }
+      }
+    });
+    grid.appendChild(d);
+  });
+}
+
+function playSequence(container, cfg, onDone){
+  const shuffled = cfg.items.map((it,i)=>({...it, i})).sort(()=>Math.random()-0.5);
+  container.innerHTML = `<p class="mg-instructions">${cfg.instructions}</p>
+    <div class="order-tray" id="stray"></div>
+    <div class="order-slots" id="sslots"></div>
+    <div class="mg-status" id="sstatus">Tap items in the correct order!</div>`;
+  const tray = $('#stray', container), slots = $('#sslots', container);
+  tray.innerHTML = shuffled.map(it=>`<button class="order-chip" data-i="${it.i}">${it.emoji} ${it.label}</button>`).join('');
+  let picked = [];
+  $all('.order-chip', tray).forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      btn.disabled = true;
+      picked.push(+btn.dataset.i);
+      const slot = document.createElement('div');
+      slot.className = 'order-slot';
+      slot.textContent = btn.textContent;
+      slots.appendChild(slot);
+      if(picked.length === cfg.items.length){
+        const numCorrect = picked.filter((v,idx)=>v===idx).length;
+        const success = numCorrect >= Math.ceil(cfg.items.length*0.6);
+        $('#sstatus', container).textContent = numCorrect === cfg.items.length ? `🎉 Perfect order!` : `You got ${numCorrect}/${cfg.items.length} right — nice try!`;
+        setTimeout(()=>onDone(success), 900);
+      }
+    });
+  });
+}
+
+function playQuiz(container, cfg, onDone){
+  let idx = 0, score = 0;
+  function show(){
+    if(idx >= cfg.questions.length){
+      const success = score >= Math.ceil(cfg.questions.length*0.5);
+      container.innerHTML = `<div class="celebrate">🎉 You scored ${score} / ${cfg.questions.length}!</div>`;
+      setTimeout(()=>onDone(success), 700);
+      return;
+    }
+    const q = cfg.questions[idx];
+    container.innerHTML = `<p class="mg-instructions">${cfg.instructions || ''}</p>
+      <div class="quiz-q">${idx+1}. ${q.q}</div>` +
+      q.opts.map((o,i)=>`<button class="quiz-opt" data-i="${i}">${o}</button>`).join('') +
+      `<div class="mg-status">Question ${idx+1} of ${cfg.questions.length}</div>`;
+    $all('.quiz-opt', container).forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const i = +btn.dataset.i;
+        $all('.quiz-opt', container).forEach(b=>b.disabled = true);
+        if(i === q.a){ btn.classList.add('correct'); score++; }
+        else { btn.classList.add('wrong'); $(`[data-i="${q.a}"]`, container).classList.add('correct'); }
+        setTimeout(()=>{ idx++; show(); }, 800);
+      });
+    });
+  }
+  show();
+}
+
+function playSimon(container, cfg, onDone){
+  let seq = [], playerIdx = 0, accepting = false;
+  container.innerHTML = `<p class="mg-instructions">${cfg.instructions}</p>
+    <div class="simon-pads" id="spads"></div>
+    <div class="mg-status" id="sstatus">Watch Mochi's tune...</div>`;
+  const padsEl = $('#spads', container);
+  cfg.pads.forEach((p,i)=>{
+    const b = document.createElement('button');
+    b.className = 'simon-pad'; b.textContent = p.emoji; b.dataset.i = i;
+    b.addEventListener('click', ()=>onPadClick(i));
+    padsEl.appendChild(b);
+  });
+  function flash(i){
+    const b = padsEl.children[i];
+    b.classList.add('lit');
+    setTimeout(()=>b.classList.remove('lit'), 400);
+  }
+  function nextRound(){
+    seq.push(Math.floor(Math.random()*cfg.pads.length));
+    playerIdx = 0; accepting = false;
+    $('#sstatus', container).textContent = `Watch closely! Round ${seq.length}`;
+    let i = 0;
+    const iv = setInterval(()=>{
+      flash(seq[i]); i++;
+      if(i >= seq.length){
+        clearInterval(iv);
+        setTimeout(()=>{ accepting = true; $('#sstatus', container).textContent = 'Your turn — repeat the tune!'; }, 400);
+      }
+    }, 700);
+  }
+  function onPadClick(i){
+    if(!accepting) return;
+    flash(i);
+    if(seq[playerIdx] === i){
+      playerIdx++;
+      if(playerIdx === seq.length){
+        if(seq.length >= cfg.rounds){ accepting = false; onDone(true); return; }
+        accepting = false;
+        setTimeout(nextRound, 700);
+      }
+    } else {
+      accepting = false;
+      $('#sstatus', container).textContent = `Oops! Let's try again 🎵`;
+      seq = [];
+      setTimeout(nextRound, 900);
+    }
+  }
+  nextRound();
+}
+
+function playFishing(container, cfg, onDone){
+  let round = 0, hits = 0;
+  container.innerHTML = `<p class="mg-instructions">${cfg.instructions}</p>
+    <div class="fish-stage" id="fstage">🎣</div>
+    <div class="mg-status" id="fstatus">Get ready...</div>`;
+  const stage = $('#fstage', container);
+  function roundStart(){
+    round++;
+    $('#fstatus', container).textContent = `Round ${round} / ${cfg.rounds}: wait for it...`;
+    const wait = 1000 + Math.random()*2000;
+    setTimeout(()=>{
+      const fish = document.createElement('div');
+      fish.className = 'fish-bite'; fish.textContent = '🐟';
+      stage.appendChild(fish);
+      let caught = false;
+      const to = setTimeout(()=>{ if(!caught){ fish.remove(); afterRound(false); } }, 850);
+      fish.addEventListener('click', ()=>{
+        if(caught) return;
+        caught = true; clearTimeout(to);
+        fish.textContent = '🎉';
+        setTimeout(()=>fish.remove(), 300);
+        afterRound(true);
+      });
+    }, wait);
+  }
+  function afterRound(success){
+    if(success) hits++;
+    if(round >= cfg.rounds){
+      $('#fstatus', container).textContent = `You caught ${hits}/${cfg.rounds} fish!`;
+      setTimeout(()=>onDone(hits >= Math.ceil(cfg.rounds*0.5)), 700);
+    } else {
+      setTimeout(roundStart, 600);
+    }
+  }
+  roundStart();
+}
+
+function playHiddenObject(container, cfg, onDone){
+  const total = cfg.targets.length;
+  const cellCount = cfg.gridSize*cfg.gridSize;
+  let cells = Array(cellCount).fill(null).map(()=>cfg.decoy[Math.floor(Math.random()*cfg.decoy.length)]);
+  const positions = shuffle([...Array(cellCount).keys()]).slice(0, total);
+  positions.forEach((pos,i)=>{ cells[pos] = cfg.targets[i]; });
+  container.innerHTML = `<p class="mg-instructions">${cfg.instructions}</p>
+    <div class="hidden-grid" id="hgrid"></div>
+    <div class="mg-status" id="hstatus">Found: 0 / ${total}</div>`;
+  const grid = $('#hgrid', container);
+  grid.style.gridTemplateColumns = `repeat(${cfg.gridSize},1fr)`;
+  let foundCount = 0;
+  cells.forEach((emoji,i)=>{
+    const isTarget = positions.includes(i);
+    const cell = document.createElement('button');
+    cell.className = 'hidden-cell'; cell.textContent = emoji;
+    cell.addEventListener('click', ()=>{
+      if(cell.classList.contains('found')) return;
+      if(isTarget){
+        cell.classList.add('found'); foundCount++;
+        $('#hstatus', container).textContent = `Found: ${foundCount} / ${total}`;
+        if(foundCount === total) setTimeout(()=>onDone(true), 400);
+      } else {
+        cell.classList.add('shake');
+        setTimeout(()=>cell.classList.remove('shake'), 300);
+      }
+    });
+    grid.appendChild(cell);
+  });
+}
+
+const engineMap = { collector:playCollector, memory:playMemoryPairs, sequence:playSequence, quiz:playQuiz, simon:playSimon, fishing:playFishing, hidden:playHiddenObject };
+
+/* ============================================================
+   ADVENTURE RENDERING / ROUTING
+   ============================================================ */
+let advView = { screen:'map', chapter:null, activity:null };
+
+function chapterDone(ci){
+  const ch = chapters[ci];
+  return ch.activities.every(a=>state.completedActivities[ci+'-'+a.id]);
+}
+function learnVocab(ci){
+  const ch = chapters[ci];
+  if(state.visitedChapters.includes(ci)) return;
+  state.visitedChapters.push(ci);
+  ch.vocab.forEach(v=>{
+    if(!state.vocabLearned.some(x=>x.en===v.en)) state.vocabLearned.push(v);
+  });
+  saveState();
+}
+function completeActivity(ci, activityId, success){
+  if(success) state.completedActivities[ci+'-'+activityId] = true;
+  saveState();
+  if(success && chapterDone(ci) && !state.crystals.includes(ci)){
+    state.crystals.push(ci);
+    if(!state.stickers.includes(ci)) state.stickers.push(ci);
+    if(ci+1 < chapters.length && !state.unlocked.includes(ci+1)) state.unlocked.push(ci+1);
+    saveState();
+    advView = { screen:'reward', chapter:ci, activity:null };
+    renderAdventure();
+    renderBackpack();
+    updateFooter();
+    return;
+  }
+  advView = { screen:'chapter', chapter:ci, activity:null };
+  renderAdventure();
+  updateFooter();
+}
+
+function renderAdventure(){
+  const root = $('#adventure-root');
+  if(advView.screen === 'map'){
+    root.innerHTML = `<div class="eyebrow">The Story So Far</div>
+      <h2 class="title">🗺️ Adventure Map</h2>
+      <p style="font-size:14px">Tap an unlocked chapter to help Mochi and collect its Spirit Crystal!</p>
+      <div class="chapter-map" id="cmap"></div>`;
+    const cmap = $('#cmap', root);
+    chapters.forEach((ch, i)=>{
+      const locked = !state.unlocked.includes(i);
+      const done = chapterDone(i);
+      const doneCount = ch.activities.filter(a=>state.completedActivities[i+'-'+a.id]).length;
+      const btn = document.createElement('button');
+      btn.className = 'chapter-node' + (locked ? ' locked' : '') + (done ? ' done' : '');
+      btn.innerHTML = `${locked ? '<span class="lock">🔒</span>' : ''}
+        <span class="emoji">${ch.emoji}</span>
+        <b>${ch.name}</b>
+        <span class="theme">${ch.theme}</span>
+        <span class="prog">${done ? '💎 Collected!' : doneCount + ' / ' + ch.activities.length}</span>`;
+      if(!locked) btn.addEventListener('click', ()=>{ advView = { screen:'chapter', chapter:i, activity:null }; renderAdventure(); });
+      cmap.appendChild(btn);
+    });
+    return;
+  }
+
+  if(advView.screen === 'chapter'){
+    const ci = advView.chapter, ch = chapters[ci];
+    learnVocab(ci);
+    root.innerHTML = `<button class="adv-back" id="adv-back-map">← Back to Map</button>
+      <div class="eyebrow">${ch.theme}</div>
+      <h2 class="title">${ch.emoji} ${ch.name} <span class="zh" style="font-size:15px;color:#888">${ch.zh}</span></h2>
+      <p style="font-size:14px">${ch.intro}</p>
+      ${ch.mochi.map(line=>`<div class="mochi-row"><div class="mochi-face">🌿</div><div class="mochi-bubble">${line}</div></div>`).join('')}
+      <div class="vocab-row">${ch.vocab.map(v=>`<span class="vocab-chip">${v.en} ${v.zh} ${v.py}</span>`).join('')}</div>
+      <div class="activity-list" id="activity-list"></div>`;
+    $('#adv-back-map', root).addEventListener('click', ()=>{ advView = { screen:'map', chapter:null, activity:null }; renderAdventure(); });
+    const list = $('#activity-list', root);
+    ch.activities.forEach(act=>{
+      const done = !!state.completedActivities[ci+'-'+act.id];
+      const btn = document.createElement('button');
+      btn.className = 'activity-btn' + (done ? ' done' : '');
+      btn.innerHTML = `<span class="a-emoji">${act.emoji}</span> ${act.title} <span class="a-check">${done ? '✅' : '▶️'}</span>`;
+      btn.addEventListener('click', ()=>{ advView = { screen:'activity', chapter:ci, activity:act.id }; renderAdventure(); });
+      list.appendChild(btn);
+    });
+    return;
+  }
+
+  if(advView.screen === 'activity'){
+    const ci = advView.chapter, ch = chapters[ci];
+    const act = ch.activities.find(a=>a.id === advView.activity);
+    root.innerHTML = `<button class="adv-back" id="adv-back-chapter">← Back to ${ch.name}</button>
+      <h2 class="title">${act.emoji} ${act.title}</h2>
+      <div id="minigame-root"></div>`;
+    $('#adv-back-chapter', root).addEventListener('click', ()=>{ advView = { screen:'chapter', chapter:ci, activity:null }; renderAdventure(); });
+    const mgRoot = $('#minigame-root', root);
+    engineMap[act.type](mgRoot, act.cfg, (success)=>{
+      if(!mgRoot.isConnected) return; // player already navigated away before this finished
+      mgRoot.innerHTML += `<div class="celebrate">${success ? '🎉 Wonderful! Activity complete!' : '💪 Good try! You can play again anytime.'}</div>
+        <button class="reset-btn" id="mg-continue">Continue</button>`;
+      $('#mg-continue', mgRoot).addEventListener('click', ()=>completeActivity(ci, act.id, success));
+    });
+    return;
+  }
+
+  if(advView.screen === 'reward'){
+    const ci = advView.chapter, ch = chapters[ci];
+    root.innerHTML = `<div class="reward-screen">
+      <div class="reward-crystal">${ch.crystal.emoji}</div>
+      <h2 class="title">You found the ${ch.crystal.name}!</h2>
+      <p>Mochi is so happy — you also earned the ${ch.sticker.emoji} ${ch.sticker.name} for your backpack!</p>
+      ${ci+1 < chapters.length ? `<p class="script" style="font-size:20px">✨ ${chapters[ci+1].name} is now unlocked! ✨</p>` : `<p class="script" style="font-size:22px">🏆 Chloe restored balance to Hokkaido! 🏆</p>`}
+      <button class="reset-btn" id="reward-continue">Back to Map</button>
+    </div>`;
+    $('#reward-continue', root).addEventListener('click', ()=>{ advView = { screen:'map', chapter:null, activity:null }; renderAdventure(); });
+    return;
+  }
+}
+
+/* ============================================================
+   PASSPORT: DAYS + STAMPS
+   ============================================================ */
+const days = [
+  {n:1, title:"Flying Day", zh:"飞行日", emoji:"✈️", text:"Fly to Hokkaido, then drive up into the mountains to Club Med Tomamu.", spot:["An airplane window seat","A mountain from the car window"]},
+  {n:2, title:"Sea of Clouds", zh:"云海", emoji:"☁️", text:"Wake up early to see the Unkai — a sea of clouds below the mountain! Visit farm animals and swim.", spot:["A cloud below you (not above!)","A farm animal"]},
+  {n:3, title:"Family Photo Day", zh:"全家福日", emoji:"📸", text:"Family photos in the mountains. At night, a secret visit to a glass chapel that sits over water.", spot:["Someone taking your photo","A building made of glass"]},
+  {n:4, title:"Cheese Factory Day", zh:"奶酪工厂日", emoji:"🧀", text:"Drive through flower-field country to a real cheese factory — pizza and cheese soft-serve ice cream!", spot:["A cow","Cheese soft-serve ice cream"]},
+  {n:5, title:"Blue Pond Day", zh:"蓝池日", emoji:"🎨", text:"See patchwork hills and the amazing bright-blue pond. Visit real dairy cows on a farm.", spot:["Water that looks bright blue","A patchwork-looking hill"]},
+  {n:6, title:"Ramen or Zoo Day", zh:"拉面或动物园日", emoji:"🍜", text:"Ramen village or the zoo, a fun playground stop, then drive to the seaside town of Otaru.", spot:["A bowl of ramen noodles","A playground"]},
+  {n:7, title:"Canal Day", zh:"运河日", emoji:"⛵", text:"Walk along Otaru's pretty canal, eat sushi, then drive to a lake inside an old volcano.", spot:["A boat or canal","A piece of sushi"]},
+  {n:8, title:"Volcano Cable Car Day", zh:"缆车日", emoji:"🚡", text:"Ride a cable car up a volcano, ice cream by the lake, maybe fireworks at night!", spot:["A cable car","Fireworks or the lake at night"]},
+  {n:9, title:"Giant Statue Day", zh:"大佛日", emoji:"🗿", text:"See a giant hidden Buddha statue or run wild at an amazing park, then fly home.", spot:["A statue","An airplane, going home!"]},
+];
+function renderDays(){
+  const list = $('#day-list');
+  list.innerHTML = '';
+  days.forEach(d=>{
+    const div = document.createElement('div');
+    div.className = 'day-card';
+    div.innerHTML = `<div class="day-num">${d.n}</div>
+      <div style="flex:1"><h4>${d.emoji} ${d.title} <span style="font-weight:400;color:#888;font-size:12px" class="zh">${d.zh}</span></h4>
+      <p>${d.text}</p>
+      <div class="spot-list">${d.spot.map((s,i)=>`<label class="spot-item"><input type="checkbox" data-day="${d.n}" data-idx="${i}"${(state.stamps['spot-'+d.n+'-'+i])?' checked':''}/> I spotted: ${s}</label>`).join('')}</div></div>
+      <div class="stamp-badge" id="badge-${d.n}">⭐</div>`;
+    list.appendChild(div);
+  });
+  $all('input[type=checkbox]', list).forEach(cb=>{
+    cb.addEventListener('change', ()=>{
+      state.stamps['spot-'+cb.dataset.day+'-'+cb.dataset.idx] = cb.checked;
+      checkStamps();
+    });
+  });
+  checkStamps();
+}
+function checkStamps(){
+  days.forEach(d=>{
+    const boxes = $all(`input[data-day="${d.n}"]`);
+    const all = boxes.length>0 && boxes.every(b=>b.checked);
+    state.stamps['day-'+d.n] = all;
+    const badge = $(`#badge-${d.n}`);
+    if(badge) badge.classList.toggle('earned', all);
+  });
+  saveState();
+  updateFooter();
+}
+function updateFooter(){
+  const stampCount = days.filter(d=>state.stamps['day-'+d.n]).length;
+  $('#stamp-count').textContent = stampCount;
+  $('#crystal-count').textContent = state.crystals.length;
+}
+
+/* ============================================================
+   BACKPACK
+   ============================================================ */
+function renderBackpack(){
+  const cgrid = $('#crystal-grid');
+  cgrid.innerHTML = chapters.map((ch,i)=>{
+    const owned = state.crystals.includes(i);
+    return `<div class="backpack-slot${owned?'':' locked'}">${owned?ch.crystal.emoji:'❓'}<span>${owned?ch.crystal.name:'???'}</span></div>`;
+  }).join('');
+
+  const sgrid = $('#sticker-grid');
+  sgrid.innerHTML = chapters.map((ch,i)=>{
+    const owned = state.stickers.includes(i);
+    return `<div class="backpack-slot${owned?'':' locked'}">${owned?ch.sticker.emoji:'❓'}<span>${owned?ch.sticker.name:'???'}</span></div>`;
+  }).join('');
+
+  const vbook = $('#vocab-book');
+  vbook.innerHTML = state.vocabLearned.length
+    ? state.vocabLearned.map(v=>`<div class="vocab-entry"><b>${v.en}</b> — ${v.zh} <span class="py">(${v.py})</span></div>`).join('')
+    : `<p style="font-size:13px;color:#666">Explore the Adventure chapters to start learning words!</p>`;
+
+  const alist = $('#achievement-list');
+  alist.innerHTML = achievementDefs.map(a=>{
+    const unlocked = a.check(state);
+    return `<div class="achievement${unlocked?'':' locked'}"><span class="a-emoji">${unlocked?a.emoji:'🔒'}</span><div><b>${a.name}</b><small>${a.desc}</small></div></div>`;
+  }).join('');
+}
+$('#reset-adventure').addEventListener('click', ()=>{
+  if(confirm("Reset all Adventure, Passport and Arcade progress? This can't be undone.")){
+    state = defaultState();
+    saveState();
+    advView = { screen:'map', chapter:null, activity:null };
+    renderAdventure(); renderBackpack(); renderDays(); updateFooter();
+  }
+});
+
+/* ============================================================
+   INIT (Adventure / Passport / Backpack)
+   ============================================================ */
+renderAdventure();
+renderDays();
+renderBackpack();
+updateFooter();
+
+/* ============================================================
+   BONUS ARCADE (Word Match, Quiz, Pack, Tic-Tac-Toe, Word Search, Crossword, Order)
+   ============================================================ */
+const vocabPairs = [
+  {en:"Snow", zh:"雪"},{en:"Mountain", zh:"山"},{en:"Lake", zh:"湖"},{en:"Bear", zh:"熊"},
+  {en:"Milk", zh:"牛奶"},{en:"Cheese", zh:"奶酪"},{en:"Ramen", zh:"拉面"},{en:"Flower", zh:"花"},
+  {en:"Cloud", zh:"云"},{en:"Family", zh:"家人"},
+];
+const quizQs = [
+  {q:"Which island is Hokkaido part of?", opts:["Japan","China","Korea"], a:0},
+  {q:"What is Hokkaido especially famous for making?", opts:["Chocolate","Milk & Cheese","Rice"], a:1},
+  {q:"What is the 'Unkai' you might see at Tomamu?", opts:["A Sea of Clouds","A big lake","A type of noodle"], a:0},
+  {q:"What animal lives wild in Hokkaido's forests?", opts:["Lions","Bears","Elephants"], a:1},
+  {q:"What color is the famous pond in Biei?", opts:["Green","Red","Blue"], a:2},
+  {q:"What food is Asahikawa famous for?", opts:["Ramen noodles","Pizza","Tacos"], a:0},
+];
+const packItems = [
+  {emoji:"🧥", label:"Light jacket"},{emoji:"👟", label:"Comfy shoes for walking"},
+  {emoji:"🧸", label:"Favourite toy for the plane"},{emoji:"🎨", label:"Colouring book or tablet"},
+  {emoji:"🧦", label:"Extra socks"},{emoji:"🩹", label:"Snacks for the car"},
+  {emoji:"📷", label:"Something to remember the trip with"},{emoji:"🦷", label:"Toothbrush"},
+];
+
+$all('.game-tile').forEach(t=>{
+  t.addEventListener('click', ()=>{
+    $all('.panel').forEach(p=>p.classList.remove('active'));
+    const panel = $('#panel-'+t.dataset.game);
+    panel.classList.add('active');
+    if(!state.arcadePlayed.includes(t.dataset.game)){ state.arcadePlayed.push(t.dataset.game); saveState(); renderBackpack(); }
+    ({match:initMatch, quiz:initArcadeQuiz, pack:initPack, ttt:initTTT, wsearch:initWSearch, xword:initXword, order:initOrder})[t.dataset.game]();
+    panel.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+$all('[data-close]').forEach(b=>b.addEventListener('click', ()=>b.closest('.panel').classList.remove('active')));
+
+/* ---------- WORD MATCH ---------- */
+let matchSel = [], matchFound = 0;
+function initMatch(){
+  matchSel = []; matchFound = 0;
+  const chosen = vocabPairs.slice(0,6);
+  let cards = [];
+  chosen.forEach((p,i)=>{ cards.push({id:'en'+i,text:p.en,pair:i}); cards.push({id:'zh'+i,text:p.zh,pair:i,zh:true}); });
+  cards.sort(()=>Math.random()-0.5);
+  const grid = $('#match-grid'); grid.innerHTML='';
+  cards.forEach(c=>{
+    const div = document.createElement('div');
+    div.className='match-card'+(c.zh?' zh':''); div.textContent=c.text;
+    div.dataset.id=c.id; div.dataset.pair=c.pair;
+    div.addEventListener('click', ()=>onMatchClick(div));
+    grid.appendChild(div);
+  });
+  $('#match-progress').textContent = `Matched: 0 / ${chosen.length}`;
+}
+function onMatchClick(div){
+  if(div.classList.contains('matched')||div.classList.contains('selected')||matchSel.length===2) return;
+  div.classList.add('selected'); matchSel.push(div);
+  if(matchSel.length===2){
+    const [a,b]=matchSel;
+    if(a.dataset.pair===b.dataset.pair && a.dataset.id!==b.dataset.id){
+      setTimeout(()=>{ a.classList.add('matched'); b.classList.add('matched'); a.classList.remove('selected'); b.classList.remove('selected');
+        matchFound++; $('#match-progress').textContent = `Matched: ${matchFound} / 6`;
+        if(matchFound===6) $('#match-progress').innerHTML += ' 🎉 All done!';
+        matchSel=[]; },400);
+    } else { setTimeout(()=>{ a.classList.remove('selected'); b.classList.remove('selected'); matchSel=[]; },600); }
+  }
+}
+$('#match-reset').addEventListener('click', initMatch);
+
+/* ---------- ARCADE QUIZ ---------- */
+let arcQuizIdx=0, arcQuizScore=0;
+function initArcadeQuiz(){ arcQuizIdx=0; arcQuizScore=0; showArcQuizQ(); }
+function showArcQuizQ(){
+  const body = $('#quiz-body');
+  if(arcQuizIdx>=quizQs.length){
+    body.innerHTML = `<div class="celebrate">🎉 You scored ${arcQuizScore} / ${quizQs.length}!</div><button class="reset-btn" id="quiz-again">🔄 Play Again</button>`;
+    $('#quiz-again').addEventListener('click', initArcadeQuiz);
+    $('#quiz-progress').textContent=''; return;
+  }
+  const q = quizQs[arcQuizIdx];
+  body.innerHTML = `<div class="quiz-q">${arcQuizIdx+1}. ${q.q}</div>` + q.opts.map((o,i)=>`<button class="quiz-opt" data-i="${i}">${o}</button>`).join('');
+  $('#quiz-progress').textContent = `Question ${arcQuizIdx+1} of ${quizQs.length}`;
+  $all('.quiz-opt', body).forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i=+btn.dataset.i; $all('.quiz-opt', body).forEach(b=>b.disabled=true);
+      if(i===q.a){ btn.classList.add('correct'); arcQuizScore++; }
+      else { btn.classList.add('wrong'); $(`[data-i="${q.a}"]`, body).classList.add('correct'); }
+      setTimeout(()=>{ arcQuizIdx++; showArcQuizQ(); }, 900);
+    });
+  });
+}
+
+/* ---------- PACKING ---------- */
+function initPack(){
+  const list = $('#pack-list');
+  list.innerHTML = packItems.map((p,i)=>`<label class="pack-item" id="pack-${i}"><input type="checkbox" data-i="${i}"/> ${p.emoji} ${p.label}</label>`).join('');
+  $all('input', list).forEach(cb=> cb.addEventListener('change', ()=>{ $('#pack-'+cb.dataset.i).classList.toggle('done', cb.checked); updatePackBar(); }));
+  updatePackBar();
+}
+function updatePackBar(){
+  const total = packItems.length, done = $all('#pack-list input:checked').length;
+  $('#pack-bar').style.width = (done/total*100)+'%';
+  $('#pack-progress').textContent = done===total ? `🎉 All packed, ready to go!` : `Packed: ${done} / ${total}`;
+}
+
+/* ---------- TIC TAC TOE ---------- */
+let tttBoard, tttTurn;
+function initTTT(){
+  tttBoard = Array(9).fill(null); tttTurn = '🌸';
+  const b = $('#ttt-board'); b.innerHTML='';
+  for(let i=0;i<9;i++){
+    const btn = document.createElement('button');
+    btn.className='ttt-cell'; btn.dataset.i=i;
+    btn.addEventListener('click', ()=>tttMove(i,btn));
+    b.appendChild(btn);
+  }
+  $('#ttt-turn').textContent = `Turn: 🌸 Sakura`;
+}
+function tttMove(i,btn){
+  if(tttBoard[i]) return;
+  tttBoard[i]=tttTurn; btn.textContent=tttTurn;
+  const win = tttWin();
+  if(win){ $('#ttt-turn').innerHTML = `🎉 ${tttTurn==='🌸'?'Sakura':'Bear'} wins!`; return; }
+  if(tttBoard.every(c=>c)){ $('#ttt-turn').textContent = `It's a tie! 🌸🐻`; return; }
+  tttTurn = tttTurn==='🌸' ? '🐻' : '🌸';
+  $('#ttt-turn').textContent = `Turn: ${tttTurn} ${tttTurn==='🌸'?'Sakura':'Bear'}`;
+}
+function tttWin(){
+  const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  return L.some(([a,b,c])=> tttBoard[a] && tttBoard[a]===tttBoard[b] && tttBoard[b]===tttBoard[c]);
+}
+$('#ttt-reset').addEventListener('click', initTTT);
+
+/* ---------- WORD SEARCH ---------- */
+const wsWords = [
+  {w:"BEAR", r:0,c:0,dr:0,dc:1},
+  {w:"SNOW", r:0,c:5,dr:1,dc:0},
+  {w:"LAKE", r:3,c:0,dr:0,dc:1},
+  {w:"MILK", r:1,c:7,dr:1,dc:0},
+  {w:"CLOUD", r:5,c:1,dr:0,dc:1},
+  {w:"RAMEN", r:7,c:2,dr:0,dc:1},
+];
+const wsSize = 8;
+let wsGridData, wsFirst=null, wsFoundWords=[];
+function initWSearch(){
+  wsFoundWords=[];
+  wsGridData = Array.from({length:wsSize},()=>Array(wsSize).fill(null));
+  wsWords.forEach(word=>{
+    for(let i=0;i<word.w.length;i++){
+      wsGridData[word.r+word.dr*i][word.c+word.dc*i] = word.w[i];
+    }
+  });
+  const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  for(let r=0;r<wsSize;r++) for(let c=0;c<wsSize;c++) if(!wsGridData[r][c]) wsGridData[r][c]=letters[Math.floor(Math.random()*26)];
+
+  const grid = $('#wsearch-grid');
+  grid.style.gridTemplateColumns = `repeat(${wsSize},30px)`;
+  grid.innerHTML='';
+  for(let r=0;r<wsSize;r++) for(let c=0;c<wsSize;c++){
+    const cell = document.createElement('div');
+    cell.className='wcell'; cell.textContent=wsGridData[r][c]; cell.dataset.r=r; cell.dataset.c=c;
+    cell.addEventListener('click', ()=>onWSClick(cell));
+    grid.appendChild(cell);
+  }
+  $('#wsearch-list').innerHTML = wsWords.map(w=>`<span id="wword-${w.w}">${w.w}</span>`).join('');
+  $('#wsearch-progress').textContent = `Found: 0 / ${wsWords.length}`;
+  wsFirst=null;
+}
+function onWSClick(cell){
+  if(cell.classList.contains('found')) return;
+  if(!wsFirst){ wsFirst=cell; cell.classList.add('sel'); return; }
+  const r1=+wsFirst.dataset.r, c1=+wsFirst.dataset.c, r2=+cell.dataset.r, c2=+cell.dataset.c;
+  let match = wsWords.find(w=>{
+    const endR = w.r + w.dr*(w.w.length-1), endC = w.c + w.dc*(w.w.length-1);
+    return (r1===w.r && c1===w.c && r2===endR && c2===endC) || (r2===w.r && c2===w.c && r1===endR && c1===endC);
+  });
+  if(match && !wsFoundWords.includes(match.w)){
+    wsFoundWords.push(match.w);
+    for(let i=0;i<match.w.length;i++){
+      const rr=match.r+match.dr*i, cc=match.c+match.dc*i;
+      $(`.wcell[data-r="${rr}"][data-c="${cc}"]`).classList.add('found');
+    }
+    $('#wword-'+match.w).classList.add('done');
+    $('#wsearch-progress').textContent = wsFoundWords.length===wsWords.length ? `🎉 Found them all!` : `Found: ${wsFoundWords.length} / ${wsWords.length}`;
+  }
+  wsFirst.classList.remove('sel'); wsFirst=null;
+}
+$('#wsearch-reset').addEventListener('click', initWSearch);
+
+/* ---------- CROSSWORD ---------- */
+const xGrid = [
+  [null,null,null,'F'],
+  [null,null,'L','O'],
+  ['B','E','A','R'],
+  [null,null,'K','E'],
+  [null,null,'E','S'],
+  [null,null,null,'T'],
+];
+const xNumbers = {"0,3":1, "1,2":2, "2,0":3};
+function initXword(){
+  const grid = $('#xword-grid');
+  grid.style.gridTemplateColumns = `repeat(4,32px)`;
+  grid.innerHTML='';
+  for(let r=0;r<xGrid.length;r++){
+    for(let c=0;c<xGrid[0].length;c++){
+      const cell = document.createElement('div');
+      if(xGrid[r][c]===null){ cell.className='xcell blocked'; }
+      else{
+        cell.className='xcell';
+        const num = xNumbers[r+','+c];
+        cell.innerHTML = (num?`<span class="num">${num}</span>`:'') + `<input maxlength="1" data-r="${r}" data-c="${c}"/>`;
+      }
+      grid.appendChild(cell);
+    }
+  }
+  $('#xword-clues').innerHTML = `
+    <b>Across</b>
+    3. A wild animal that lives in Hokkaido's forests (4 letters)
+    <b>Down</b>
+    1. Trees all around — watch for bears! (6 letters)<br/>
+    2. Water you can swim in, sitting inside a volcano at Toya (4 letters)`;
+  $('#xword-progress').textContent='';
+}
+$('#xword-check').addEventListener('click', ()=>{
+  let correct=0, total=0;
+  $all('#xword-grid input').forEach(inp=>{
+    total++;
+    const r=+inp.dataset.r, c=+inp.dataset.c;
+    const ok = inp.value.toUpperCase() === xGrid[r][c];
+    inp.style.background = ok ? '#e4ecdd' : '#fbe6ee';
+    if(ok) correct++;
+  });
+  $('#xword-progress').textContent = correct===total ? `🎉 Perfect! All ${total} letters correct!` : `${correct} / ${total} letters correct — keep trying!`;
+});
+
+/* ---------- ORDER GAME ---------- */
+const orderPlaces = [
+  {emoji:"🏔️", name:"Tomamu"},{emoji:"🧀", name:"Furano"},{emoji:"🎨", name:"Biei"},
+  {emoji:"🍜", name:"Asahikawa"},{emoji:"⛵", name:"Otaru"},{emoji:"🌋", name:"Lake Toya"},
+];
+let orderPicked=[];
+function initOrder(){
+  orderPicked=[];
+  const shuffled = orderPlaces.map((p,i)=>({...p,i})).sort(()=>Math.random()-0.5);
+  const tray = $('#order-tray');
+  tray.innerHTML = shuffled.map(p=>`<button class="order-chip" data-i="${p.i}">${p.emoji} ${p.name}</button>`).join('');
+  $('#order-slots').innerHTML='';
+  $('#order-progress').textContent='Tap the first place you visit!';
+  $all('.order-chip', tray).forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      btn.disabled=true; orderPicked.push(+btn.dataset.i);
+      const slots = $('#order-slots');
+      const correct = orderPicked.length-1 === +btn.dataset.i;
+      const slot = document.createElement('div'); slot.className='order-slot';
+      slot.style.background = correct ? '#e4ecdd' : '#fbe6ee'; slot.textContent = btn.textContent;
+      slots.appendChild(slot);
+      if(orderPicked.length===orderPlaces.length){
+        const numCorrect = orderPicked.filter((v,idx)=>v===idx).length;
+        $('#order-progress').innerHTML = `🎉 You got ${numCorrect} / ${orderPlaces.length} in the right spot!`;
+      } else $('#order-progress').textContent = `${orderPicked.length} / ${orderPlaces.length} placed — keep going!`;
+    });
+  });
+}
+$('#order-reset').addEventListener('click', initOrder);
+</script>
+</body>
+</html>
